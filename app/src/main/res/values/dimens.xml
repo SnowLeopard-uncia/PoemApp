@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_height">46dp</dimen>
+    <dimen name="dialog_corner">25dp</dimen>
+    <dimen name="input_view_margin_top">20dp</dimen>
+    <dimen name="btn_corner">10dp</dimen>
+</resources>

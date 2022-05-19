@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="userName"
+            type="String" />
+        <variable
+            name="userPassword"
+            type="String" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="30dp"
+        tools:context=".RegisterActivity">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/title_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <com.snowleopard.poemapp.view.InputView
+            android:id="@+id/inputView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:input_hint="@string/user_name_hint"
+            app:input_text="@string/user_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <com.snowleopard.poemapp.view.InputView
+            android:id="@+id/inputView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:input_hint="@string/password_hint"
+            app:input_text="@string/password"
+            android:layout_marginTop="@dimen/input_view_margin_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputView3" />
+
+        <com.snowleopard.poemapp.view.InputView
+            android:id="@+id/inputView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_view_margin_top"
+            app:input_hint="@string/confirm_hint"
+            app:input_text="@string/confirm"
+            app:layout_constraintTop_toBottomOf="@+id/inputView4"
+            tools:layout_editor_absoluteX="30dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_register"
+            android:text="@string/register_now"
+            android:layout_marginTop="@dimen/input_view_margin_top"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputView5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.17" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

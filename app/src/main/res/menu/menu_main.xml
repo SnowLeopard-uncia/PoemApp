@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_main"
+        android:icon="@drawable/selector_main"
+        android:title="@string/title_main_fragment"
+        />
+    <item
+        android:id="@+id/fragment_study"
+        android:title="@string/title_study_fragment"
+        android:icon="@drawable/selector_study"/>
+    <item
+        android:id="@+id/fragment_dialog"
+        android:title="@string/title_dialog_fragment"
+        android:icon="@drawable/selector_dialog"
+        />
+    <item
+        android:id="@+id/fragment_test"
+        android:icon="@drawable/selector_test"
+        android:title="@string/title_test_fragment"/>
+    <item
+        android:id="@+id/fragment_personal"
+        android:icon="@drawable/selector_personal"
+        android:title="@string/title_personal_fragment"
+        />
+
+</menu>

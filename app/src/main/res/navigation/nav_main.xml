@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/fragment_main">
+<!--通过startDestination来指明启动Activity时显示的第一个Fragment-->
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.snowleopard.poemapp.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/fragment_study"
+        android:name="com.snowleopard.poemapp.fragment.StudyFragment"
+        android:label="fragment_study"
+        tools:layout="@layout/fragment_study" />
+    <fragment
+        android:id="@+id/fragment_personal"
+        android:name="com.snowleopard.poemapp.fragment.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" />
+    <fragment
+        android:id="@+id/fragment_test"
+        android:name="com.snowleopard.poemapp.fragment.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/fragment_dialog"
+        android:name="com.snowleopard.poemapp.fragment.DialogFragment"
+        android:label="fragment_dialog"
+        tools:layout="@layout/fragment_dialog" />
+</navigation>

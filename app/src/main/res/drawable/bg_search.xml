@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="@dimen/btn_corner"/>
+    <gradient android:startColor="#B1C6F1"
+        android:centerColor="#80C6D0E3"
+        android:angle="270"
+        />
+</shape>
