@@ -64,7 +64,7 @@
 
         <Button
             android:id="@+id/button"
-            android:background="@drawable/bg_btn"
+            android:background="@drawable/bg_btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"
@@ -75,9 +75,10 @@
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <Button
+            android:id="@+id/btn_to_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn"
+            android:background="@drawable/bg_btn_login"
             android:text="@string/register"
             android:textSize="15sp"
             android:textColor="@color/white"

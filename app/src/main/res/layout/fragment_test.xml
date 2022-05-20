@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+
     tools:context=".fragment.TestFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_test_fragment" />
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/test_choose_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
-</FrameLayout>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/guideline11">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_choose_high"
+            android:gravity="center"
+            android:background="@drawable/btn_choose_selector"
+            android:button="@null"
+            android:text="@string/primary" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_height="@dimen/btn_choose_high"
+            android:background="@drawable/btn_choose_selector"
+            android:layout_marginTop="5dp"
+            android:text="@string/middle" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_height="@dimen/btn_choose_high"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_choose_selector"
+            android:text="@string/high" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_height="@dimen/btn_choose_high"
+            android:background="@drawable/btn_choose_selector"
+            android:layout_marginTop="5dp"
+            android:text="@string/random" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline15">
+
+        <RadioButton
+            android:layout_width="186dp"
+
+            android:layout_height="@dimen/btn_choose_high"
+            android:background="@drawable/btn_choose_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/choose_question" />
+
+        <RadioButton
+            android:layout_width="186dp"
+            android:layout_height="@dimen/btn_choose_high"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_choose_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/ture_or_false_question" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn"
+        android:text="@string/start_test"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.14" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="30dp"
+        android:background="@color/white"
         tools:context=".RegisterActivity">
 
         <ImageView
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             app:input_hint="@string/password_hint"
             app:input_text="@string/password"
+            app:is_password="true"
             android:layout_marginTop="@dimen/input_view_margin_top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputView3" />
@@ -50,12 +52,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/input_view_margin_top"
+            app:is_password="true"
             app:input_hint="@string/confirm_hint"
             app:input_text="@string/confirm"
             app:layout_constraintTop_toBottomOf="@+id/inputView4"
             tools:layout_editor_absoluteX="30dp" />
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_btn_register"

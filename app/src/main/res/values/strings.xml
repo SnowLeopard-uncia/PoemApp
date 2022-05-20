@@ -16,5 +16,14 @@
     <string name="confirm">确认密码</string>
     <string name="confirm_hint">请再次输入密码</string>
     <string name="register_now">立即注册</string>
+    <string name="primary">小学</string>
+    <string name="middle">初中</string>
+    <string name="high">高中</string>
+    <string name="random">随机</string>
+    <string name="choose_question">选择题</string>
+    <string name="ture_or_false_question">判断题</string>
+    <string name="start_test">开始测试</string>
+    <string name="entering">对方正在输入中......</string>
+    <string name="dialog_name">和你对句的AI</string>
 
 </resources>

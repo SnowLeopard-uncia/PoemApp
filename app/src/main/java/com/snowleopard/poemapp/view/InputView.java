@@ -73,7 +73,7 @@ public class InputView extends FrameLayout {
         editText_input=mView.findViewById(R.id.input_hint);
 
         //3.布局关联属性
-        textView_input=mView.findViewById(R.id.input_text);
+        textView_input.setText(input_text);
         editText_input.setHint(input_hint);
         //通过这两个属性控制edittext展示密文
         editText_input.setInputType(is_password ?

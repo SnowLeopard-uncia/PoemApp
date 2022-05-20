@@ -10,4 +10,6 @@
     <color name="dialog_light_blue">#80C7D5F9</color>
     <color name="gray_blue">#A1ADC5</color>
     <color name="register_blue">#ACC0EB</color>
+    <color name="dark_blue">#8A909E</color>
+    <color name="main_blue">#BCC9E4</color>
 </resources>

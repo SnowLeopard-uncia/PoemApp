@@ -4,4 +4,6 @@
     <dimen name="dialog_corner">25dp</dimen>
     <dimen name="input_view_margin_top">20dp</dimen>
     <dimen name="btn_corner">10dp</dimen>
+    <dimen name="btn_choose_corner">20dp</dimen>
+    <dimen name="btn_choose_high">55dp</dimen>
 </resources>
