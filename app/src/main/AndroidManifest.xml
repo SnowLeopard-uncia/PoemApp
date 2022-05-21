@@ -16,6 +16,9 @@
         android:theme="@style/Theme.PoemAPP"
         tools:targetApi="n">
         <activity
+            android:name=".PoamActivity"
+            android:exported="false" />
+        <activity
             android:name=".ComplexProblemActivity"
             android:exported="false" />
         <activity

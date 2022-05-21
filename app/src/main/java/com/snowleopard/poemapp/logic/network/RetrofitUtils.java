@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.logic.network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

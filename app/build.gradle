@@ -48,4 +48,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     //Retrofit的转换库，它是借助GSON来解析JSON数据的，所以会自动将GSON库一起下载下来
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //使用lombok通过注解生成无参/全参构造方法以及getter和setter
+    implementation 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
 }

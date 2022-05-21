@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_poem"
+    tools:context=".PoamActivity"
+    >
+    <include layout="@layout/nav_bar"/>
+
+    <TextView
+        android:id="@+id/poemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="静夜思"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+
+    <TextView
+        android:id="@+id/poet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="李白 (唐)"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/play"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/play"
+        app:layout_constraintTop_toTopOf="@+id/guideline20" />
+
+
+    <ImageView
+        android:id="@+id/collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        app:layout_constraintBottom_toBottomOf="@+id/poemTitle"
+
+        app:layout_constraintStart_toEndOf="@+id/poemTitle"
+
+        app:layout_constraintTop_toTopOf="@+id/poemTitle"
+        app:srcCompat="@drawable/collect" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline20"
+        app:srcCompat="@drawable/play" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="床前明月光，疑是地上霜。 \n举头望明月，低头思故乡。"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+
+    <TextView
+        android:id="@+id/translation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="译文：\n明亮的月光洒在床前的窗户纸上，好像地上泛起了一层霜。我不禁抬起头来看，看那天窗外空中的一轮明月，不由得低头沉思，想起远方的家乡。"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+ />
+
+    <TextView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="创作背景：\n李白的《静夜思》创作于公元726年九月十五日的扬州旅舍。在一个月明星稀的夜晚，诗人抬望天空一轮皓月，思乡之情油然而生，写下了这首传诵千古、中外皆知的名诗《静夜思》。"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/translation"
+/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
