@@ -39,13 +39,6 @@ public interface UserService {
     @PUT("user/password")
     Call<ResponseBody> changePassword(@Body String userName, String password);
 
-//    //查看用户头像
-//    @GET("user/protrait")
-//
-
-    //上传单张照片
-//    @POST("user/protrait")
-
     //用户注册接口
     @POST("user/register")
     Call<ResponseBody> userRegister(@Body String userName,String password);
@@ -53,5 +46,12 @@ public interface UserService {
     //用户更改用户名
     @PUT("user/username")
     Call<ResponseBody> changeUserName(@Body String userName);
+
+    //    //查看用户头像
+//    @GET("user/protrait")
+//
+
+    //上传单张照片
+//    @POST("user/protrait")
 
 }

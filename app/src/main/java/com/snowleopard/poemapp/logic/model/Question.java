@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 // 如果我们不想改变原有的Java类变量名又想成功解析，可以借助@SerializedName
 
 
-@NoArgsConstructor
-@Data
 public class Question {
 
     @SerializedName("question")

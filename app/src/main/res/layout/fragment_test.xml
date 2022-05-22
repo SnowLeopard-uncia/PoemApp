@@ -39,7 +39,7 @@
             android:gravity="center"
             android:layout_height="@dimen/btn_choose_high"
             android:background="@drawable/btn_choose_selector"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="@string/middle" />
 
         <RadioButton
@@ -47,7 +47,7 @@
             android:button="@null"
             android:gravity="center"
             android:layout_height="@dimen/btn_choose_high"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_choose_selector"
             android:text="@string/high" />
 
@@ -57,7 +57,7 @@
             android:gravity="center"
             android:layout_height="@dimen/btn_choose_high"
             android:background="@drawable/btn_choose_selector"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="@string/random" />
     </RadioGroup>
 
@@ -82,7 +82,7 @@
         <RadioButton
             android:layout_width="186dp"
             android:layout_height="@dimen/btn_choose_high"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_choose_selector"
             android:button="@null"
             android:gravity="center"
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.18" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.09" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"

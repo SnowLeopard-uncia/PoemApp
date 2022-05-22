@@ -1,7 +1,6 @@
 package com.snowleopard.poemapp.logic.model;
 
-@lombok.NoArgsConstructor
-@lombok.Data
+
 public class Poem {
 
     private Integer p_level;
