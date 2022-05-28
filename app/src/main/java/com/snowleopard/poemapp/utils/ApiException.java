@@ -12,11 +12,23 @@ public class ApiException extends RuntimeException{
     }
     /**
      * 判断是否500
-     *
      * 还有其他状态码要跟后端商量
      */
     public boolean isFail() {
-        return errorCode == Constants.FAIL;
+        return errorCode == StatusCode.SERVER_ERROR.code;
     }
+
+    public boolean isNotAllowedReg(){
+        return errorCode == StatusCode.NOT_ALLOWRD_REG.code;
+    }
+
+    public boolean isUserNotExist(){
+        return errorCode == StatusCode.USER_DOES_NOT_EXIST.code;
+    }
+    public boolean isPasswordWrong(){
+        return errorCode == StatusCode.PASSWORD_WRONG.code;
+    }
+
+
 
 }

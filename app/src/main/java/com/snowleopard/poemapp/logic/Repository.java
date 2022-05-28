@@ -1,7 +1,11 @@
 package com.snowleopard.poemapp.logic;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+
+import com.snowleopard.poemapp.logic.model.User;
+import com.snowleopard.poemapp.logic.model.UserLogin;
 import com.snowleopard.poemapp.logic.network.PoemNetWork;
 
 /**
@@ -9,8 +13,20 @@ import com.snowleopard.poemapp.logic.network.PoemNetWork;
  */
 public class Repository {
 
-    private void userLogin(String userName,String password){
-        PoemNetWork.userLogin(userName,password);
+    public static Repository repository;
+
+    public static Repository getInstance(){
+        if (repository==null){
+            repository=new Repository();
+        }
+        return repository;
+    }
+    private MutableLiveData<UserLogin> userLiveData=new MutableLiveData<>();
+
+
+
+    public LiveData<User> userLogin(UserLogin userLogin){
+       return PoemNetWork.userLogin(userLogin);
     }
 
 }

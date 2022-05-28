@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="30dp"
         android:background="@color/white"
-        tools:context=".LoginActivity">
+        tools:context=".ui.LoginActivity">
 
         <ImageView
             android:id="@+id/imageView"
@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
         <com.snowleopard.poemapp.view.InputView
-            android:id="@+id/inputView"
+            android:id="@+id/input_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:input_hint="@string/user_name_hint"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
         <com.snowleopard.poemapp.view.InputView
-            android:id="@+id/inputView2"
+            android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/input_view_margin_top"
@@ -50,7 +50,7 @@
             app:is_password="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputView" />
+            app:layout_constraintTop_toBottomOf="@+id/input_username" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -60,10 +60,10 @@
             android:layout_marginTop="17dp"
             style="@style/Widget.AppCompat.CompoundButton.RadioButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputView2" />
+            app:layout_constraintTop_toBottomOf="@+id/input_password" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             android:background="@drawable/bg_btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

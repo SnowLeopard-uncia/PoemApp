@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.logic.network;
+package com.snowleopard.poemapp.logic.network.service;
 
 import com.snowleopard.poemapp.logic.model.BaseResponse;
 import com.snowleopard.poemapp.logic.model.Poem;

@@ -1,5 +1,9 @@
 package com.snowleopard.poemapp.utils;
 
+import android.widget.Toast;
+
+import com.snowleopard.poemapp.MyApplication;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,6 +22,13 @@ public abstract class RetrofitCallback<T> implements Callback<T> {
             ApiException apiException = (ApiException) t;
             if (apiException.isFail()){
                 t.printStackTrace();//相应处理
+                Toast.makeText(MyApplication.getContext(),"出现未知错误☹",Toast.LENGTH_SHORT).show();
+            }else if (apiException.isNotAllowedReg()){
+                Toast.makeText(MyApplication.getContext(),"用户已存在",Toast.LENGTH_SHORT).show();
+            }else if (apiException.isPasswordWrong()){
+                Toast.makeText(MyApplication.getContext(),"密码错误",Toast.LENGTH_SHORT).show();
+            }else if (apiException.isUserNotExist()){
+                Toast.makeText(MyApplication.getContext(),"用户不存在",Toast.LENGTH_SHORT).show();
             }
         }
         t.printStackTrace();

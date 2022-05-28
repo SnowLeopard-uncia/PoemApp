@@ -1,13 +1,9 @@
 package com.snowleopard.poemapp.logic.model;
 
-import com.snowleopard.poemapp.utils.Constants;
+import android.provider.SyncStateContract;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.snowleopard.poemapp.utils.StatusCode;
+
 
 /**
  * 公共数据响应类
@@ -23,7 +19,7 @@ public class BaseResponse<T> {
 
     //判断状态码是否异常
     public boolean isCodeInvalid() {
-        return code != Constants.SUCCESS;
+        return code != StatusCode.SUCCESS.code;
     }
 
     public int getCode() {
