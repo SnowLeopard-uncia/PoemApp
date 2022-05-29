@@ -16,31 +16,31 @@
         android:theme="@style/Theme.PoemAPP"
         tools:targetApi="n">
         <activity
-            android:name=".PoamActivity"
+            android:name=".ui.PoamActivity"
             android:exported="false" />
         <activity
-            android:name=".ComplexProblemActivity"
+            android:name=".ui.ComplexProblemActivity"
             android:exported="false" />
         <activity
-            android:name=".CollectionActivity"
+            android:name=".ui.CollectionActivity"
             android:exported="false" />
         <activity
-            android:name=".FinishTestActivity"
+            android:name=".ui.FinishTestActivity"
             android:exported="false" />
         <activity
-            android:name=".TestActivity"
+            android:name=".ui.TestActivity"
             android:exported="false" />
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".DialogActivity"
+            android:name=".ui.DialogActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,7 +1,10 @@
 package com.snowleopard.poemapp.logic.model;
 
 
+import androidx.room.Entity;
+
 import com.google.gson.annotations.SerializedName;
+
 
 public class Poem {
 

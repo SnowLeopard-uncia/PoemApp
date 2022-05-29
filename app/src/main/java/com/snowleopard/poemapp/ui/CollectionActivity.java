@@ -1,14 +1,16 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class FinishTestActivity extends AppCompatActivity {
+import com.snowleopard.poemapp.R;
+
+public class CollectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finish_test);
+        setContentView(R.layout.activity_collection);
     }
 }

@@ -1,18 +1,16 @@
-package com.snowleopard.poemapp.ui;
+package com.snowleopard.poemapp.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.snowleopard.poemapp.logic.Repository;
+import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
-import com.snowleopard.poemapp.logic.model.UserLogin;
 
 public class LoginViewModel extends ViewModel {
 
-    public LiveData<User> userLogin(UserLogin userLogin){
-        return Repository.getInstance().userLogin(userLogin);
+    public LiveData<UserInfo> userLogin(User user){
+        return Repository.getInstance().userLogin(user);
     }
-
-
 
 }

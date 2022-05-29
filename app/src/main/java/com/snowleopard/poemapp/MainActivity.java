@@ -22,7 +22,6 @@ public class MainActivity extends BaseActivity{
         setContentView(R.layout.activity_main);
 
         bottomNavigationView=findViewById(R.id.nav_view);
-
 //        //获取NavController
 //        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment);
 //        //通过setupWithNavController将底部导航和导航控制器进行绑定
@@ -33,6 +32,5 @@ public class MainActivity extends BaseActivity{
         //2、再拿NavController
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
-
     }
 }

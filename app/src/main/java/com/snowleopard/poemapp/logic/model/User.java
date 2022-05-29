@@ -1,21 +1,32 @@
 package com.snowleopard.poemapp.logic.model;
 
-public class User {
-    private String proPath;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+/**
+ * 此类用于登录注册
+ */
+public class User implements Serializable {
+
+    @SerializedName("password")
+    private String password;
+
+    @SerializedName("username")
     private String username;
 
-    public User(String proPath, String username) {
-        this.proPath = proPath;
+    public User(String password, String username) {
+        this.password = password;
         this.username = username;
     }
 
-    public String getProPath() {
-        return proPath;
+    public String getPassword() {
+        return password;
     }
 
-    public void setProPath(String proPath) {
-        this.proPath = proPath;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUsername() {

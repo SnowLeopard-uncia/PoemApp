@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="30dp"
         android:background="@color/white"
-        tools:context=".ui.LoginActivity">
+        tools:context=".ui.login.LoginActivity">
 
         <ImageView
             android:id="@+id/imageView"

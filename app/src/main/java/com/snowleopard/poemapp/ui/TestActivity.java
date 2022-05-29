@@ -1,14 +1,16 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DialogActivity extends AppCompatActivity {
+import com.snowleopard.poemapp.R;
+
+public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialog);
+        setContentView(R.layout.activity_test);
     }
 }

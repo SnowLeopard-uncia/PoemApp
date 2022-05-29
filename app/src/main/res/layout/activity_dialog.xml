@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DialogActivity"
+        tools:context=".ui.DialogActivity"
         android:background="@drawable/bg_dialog"
         android:paddingHorizontal="17dp"
         android:paddingBottom="17dp">
@@ -48,30 +48,32 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/btn_reply"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_reply"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/edit_height"
+            android:layout_height="@dimen/edit_height_dialog"
             android:background="@drawable/bg_dialog_btn"
             android:text="回答"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
-            android:layout_height="@dimen/edit_height"
-            android:layout_marginEnd="19dp"
+            android:layout_height="@dimen/edit_height_dialog"
+            android:layout_marginEnd="13dp"
+            android:paddingHorizontal="10dp"
             android:background="@drawable/bg_dialog_btn"
-
+            android:singleLine="true"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintEnd_toStartOf="@+id/btn_reply"
             app:layout_constraintStart_toStartOf="parent" />
 
 

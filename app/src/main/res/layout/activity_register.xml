@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="30dp"
         android:background="@color/white"
-        tools:context=".RegisterActivity">
+        tools:context=".ui.register.RegisterActivity">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <com.snowleopard.poemapp.view.InputView
-            android:id="@+id/inputView3"
+            android:id="@+id/input_reg_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:input_hint="@string/user_name_hint"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <com.snowleopard.poemapp.view.InputView
-            android:id="@+id/inputView4"
+            android:id="@+id/input_reg_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:input_hint="@string/password_hint"
@@ -45,17 +45,17 @@
             app:is_password="true"
             android:layout_marginTop="@dimen/input_view_margin_top"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputView3" />
+            app:layout_constraintTop_toBottomOf="@+id/input_reg_user_name" />
 
         <com.snowleopard.poemapp.view.InputView
-            android:id="@+id/inputView5"
+            android:id="@+id/input_reg_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/input_view_margin_top"
             app:is_password="true"
             app:input_hint="@string/confirm_hint"
             app:input_text="@string/confirm"
-            app:layout_constraintTop_toBottomOf="@+id/inputView4"
+            app:layout_constraintTop_toBottomOf="@+id/input_reg_password"
             tools:layout_editor_absoluteX="30dp" />
 
         <Button
@@ -68,7 +68,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputView5" />
+            app:layout_constraintTop_toBottomOf="@+id/input_reg_confirm_password" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui;
+package com.snowleopard.poemapp.ui.login;
 
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
@@ -14,10 +14,10 @@ import android.widget.Toast;
 import com.snowleopard.poemapp.BaseActivity;
 import com.snowleopard.poemapp.MainActivity;
 import com.snowleopard.poemapp.R;
-import com.snowleopard.poemapp.RegisterActivity;
 import com.snowleopard.poemapp.databinding.ActivityLoginBinding;
+import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
-import com.snowleopard.poemapp.logic.model.UserLogin;
+import com.snowleopard.poemapp.ui.register.RegisterActivity;
 
 public class LoginActivity extends BaseActivity {
 
@@ -41,11 +41,11 @@ public class LoginActivity extends BaseActivity {
                 if (userName.equals("") || password.equals("")){
                     Toast.makeText(LoginActivity.this,"请输入账号和密码",Toast.LENGTH_SHORT).show();
                 }else {
-                    UserLogin userLogin = new UserLogin(userName,password);
-                    loginViewModel.userLogin(userLogin).observe(LoginActivity.this, new Observer<User>() {
+                    User user = new User(userName,password);
+                    loginViewModel.userLogin(user).observe(LoginActivity.this, new Observer<UserInfo>() {
                         @Override
-                        public void onChanged(User user) {
-                            if (user !=null){
+                        public void onChanged(UserInfo userInfo) {
+                            if (userInfo !=null){
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

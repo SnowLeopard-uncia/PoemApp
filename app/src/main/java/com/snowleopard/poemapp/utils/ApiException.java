@@ -29,6 +29,9 @@ public class ApiException extends RuntimeException{
         return errorCode == StatusCode.PASSWORD_WRONG.code;
     }
 
+    public boolean isPoemNotFound(){
+        return errorCode==StatusCode.POEM_NOT_FOUND.code;
+    }
 
 
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="edit_height">46dp</dimen>
+    <dimen name="edit_height_dialog">40dp</dimen>
     <dimen name="dialog_corner">25dp</dimen>
     <dimen name="input_view_margin_top">20dp</dimen>
     <dimen name="btn_corner">10dp</dimen>
     <dimen name="btn_choose_corner">20dp</dimen>
     <dimen name="btn_choose_high">55dp</dimen>
+    <dimen name="rv_study_paddingHorizontal">15dp</dimen>
+    <dimen name="rv_study_paddingVertical">10dp</dimen>
 </resources>

@@ -29,6 +29,8 @@ public abstract class RetrofitCallback<T> implements Callback<T> {
                 Toast.makeText(MyApplication.getContext(),"密码错误",Toast.LENGTH_SHORT).show();
             }else if (apiException.isUserNotExist()){
                 Toast.makeText(MyApplication.getContext(),"用户不存在",Toast.LENGTH_SHORT).show();
+            }else if (apiException.isPoemNotFound()){
+                Toast.makeText(MyApplication.getContext(),"暂无诗词",Toast.LENGTH_SHORT).show();
             }
         }
         t.printStackTrace();
