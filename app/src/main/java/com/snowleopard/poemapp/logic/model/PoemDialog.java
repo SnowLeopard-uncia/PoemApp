@@ -15,8 +15,9 @@ public class PoemDialog {
 @ColumnInfo(name = "level_column")
 private int level;
 
-    public PoemDialog(String ask, String answer) {
+    public PoemDialog(String ask, String answer,int level) {
         this.ask = ask;
+        this.level=level;
         this.answer = answer;
     }
 

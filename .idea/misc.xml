@@ -24,13 +24,14 @@
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/selector_personal.xml" value="0.1395" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/selector_study.xml" value="0.1395" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/selector_test.xml" value="0.1395" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_change_info.xml" value="0.14764492753623187" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_collection.xml" value="0.13269927536231885" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_complex_problem.xml" value="0.14130434782608695" />
-        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_dialog.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_dialog.xml" value="0.1" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_finish_test.xml" value="0.14666666666666667" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_main.xml" value="0.18848167539267016" />
-        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_poam.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_poam.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_register.xml" value="0.19603267211201866" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_test.xml" value="0.14666666666666667" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/bg_pome_item.xml" value="0.14130434782608695" />
@@ -45,6 +46,9 @@
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/input_view.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_answer.xml" value="0.16666666666666666" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_ask.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_collect_mistakes.xml" value="0.10914855072463768" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_collections.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_mistakes.xml" value="0.22" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/item_study.xml" value="0.22" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/nav_bar.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/menu/menu_main.xml" value="0.12916666666666668" />

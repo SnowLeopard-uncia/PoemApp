@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.snowleopard.poemapp.BaseActivity;
 import com.snowleopard.poemapp.R;
 
-public class PoamActivity extends AppCompatActivity {
+public class ChangeInfoActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poam);
+        setContentView(R.layout.activity_change_info);
     }
 }

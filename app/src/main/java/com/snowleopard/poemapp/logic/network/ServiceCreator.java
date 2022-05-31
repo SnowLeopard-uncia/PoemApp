@@ -12,7 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @param <T>
  */
 public class ServiceCreator<T> {
-    private static final String BASE_URL="http://192.168.43.174:8080";
+    //电脑连接手机热点
+//    private static final String BASE_URL="http://192.168.43.174:8080";
+    //手机连接电脑热点
+    private static final String BASE_URL="http://192.168.137.1:8080";
 
 //   static OkHttpClient.Builder builder = new OkHttpClient().newBuilder().addInterceptor(new BaseInterceptor());
 //

@@ -5,8 +5,10 @@ import androidx.room.Entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Poem {
+
+public class Poem implements Serializable {
 
     @SerializedName("p_level")
     private Integer pLevel;

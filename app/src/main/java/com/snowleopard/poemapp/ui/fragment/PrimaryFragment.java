@@ -2,25 +2,23 @@ package com.snowleopard.poemapp.ui.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.PrimaryStudyAdapter;
-import com.snowleopard.poemapp.R;
+import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.databinding.FragmentPrimaryBinding;
-import com.snowleopard.poemapp.databinding.FragmentStudyBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PrimaryFragment extends Fragment {
@@ -31,6 +29,8 @@ public class PrimaryFragment extends Fragment {
     public PrimaryFragment() {
         // Required empty public constructor
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,15 +39,27 @@ public class PrimaryFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentPrimaryBinding.rvStudyPrimary.setLayoutManager(linearLayoutManager);
-        PrimaryStudyAdapter adapter = new PrimaryStudyAdapter();
+        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemList());
+//        StudyAdapter adapter = new StudyAdapter();
         fragmentPrimaryBinding.rvStudyPrimary.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelP().observe(this.getActivity(), new Observer<List<Poem>>() {
             @Override
             public void onChanged(List<Poem> poems) {
-                adapter.setPoems(poems);
+                if (poems!=null){
+
+                    mainViewModel.getPoemList().clear();
+                    mainViewModel.setPoemList(poems);
+                    adapter.setPoems(mainViewModel.getPoemList());
+                    Log.e("TAG", "onChanged: "+"primary" );
+                }else {
+                    Toast.makeText(getActivity(),"暂无诗词",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
+
 
         return fragmentPrimaryBinding.getRoot();
     }

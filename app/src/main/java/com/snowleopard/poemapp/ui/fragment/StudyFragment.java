@@ -2,11 +2,9 @@ package com.snowleopard.poemapp.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -16,10 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
-import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.MyApplication;
-import com.snowleopard.poemapp.PagerAdapter;
 import com.snowleopard.poemapp.R;
+import com.snowleopard.poemapp.ui.adapter.PagerAdapter;
 import com.snowleopard.poemapp.databinding.FragmentStudyBinding;
 
 
@@ -60,7 +56,7 @@ public class StudyFragment extends Fragment {
         pagerAdapter.addFragment(new MiddleFragment());
         pagerAdapter.addFragment(new HighFragment());
 
-//        fragmentStudyBinding.tbStudy.setTabTextColors(R.color.dark_blue,R.color.gray_blue);
+        fragmentStudyBinding.tbStudy.setTabTextColors(R.color.dark_blue,R.color.main_blue);
         fragmentStudyBinding.tbStudy.addTab(fragmentStudyBinding.tbStudy.newTab().setText("小学"));
         fragmentStudyBinding.tbStudy.addTab(fragmentStudyBinding.tbStudy.newTab().setText("初中"));
         fragmentStudyBinding.tbStudy.addTab(fragmentStudyBinding.tbStudy.newTab().setText("高中"));
@@ -71,6 +67,7 @@ public class StudyFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 fragmentStudyBinding.vp2Study.setCurrentItem(tab.getPosition());
+
             }
 
             @Override

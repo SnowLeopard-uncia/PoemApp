@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -15,7 +16,7 @@ public interface MistakeService {
 
     //添加错题
     @POST("/mistakes/addition")
-    Call<BaseResponse<Integer>> addQuestion(@Body String username,String qId);
+    Call<BaseResponse<Integer>> addQuestion(@Field("qId") String username, String qId);
 
     //查看错题
     @GET("/mistakes/questions")

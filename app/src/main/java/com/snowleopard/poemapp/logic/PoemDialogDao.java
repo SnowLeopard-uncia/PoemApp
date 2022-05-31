@@ -25,13 +25,14 @@ public interface PoemDialogDao {
     @Delete
     void delete(PoemDialog poemDialog);
 
-    @Query("SELECT * FROM poem_dialog_table WHERE level_column = 0")
-    LiveData<List<PoemDialog>> getAllPrimaryPoems();
+    @Query("delete from poem_dialog_table")
+    void deleteAll();
 
-    @Query("SELECT * FROM poem_dialog_table WHERE level_column = 1")
-    LiveData<List<PoemDialog>> getAllMiddlePoems();
 
-    @Query("SELECT * FROM poem_dialog_table WHERE level_column = 2")
-    LiveData<List<PoemDialog>> getAllHighPoems();
+    @Query("SELECT * FROM poem_dialog_table WHERE level_column =:level")
+    LiveData<List<PoemDialog>> getAllPoemsByLevel(int level);
+
+    @Query("SELECT * FROM poem_dialog_table")
+    LiveData<List<PoemDialog>> getAllPoems();
 
 }

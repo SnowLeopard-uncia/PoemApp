@@ -7,13 +7,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.PrimaryStudyAdapter;
-import com.snowleopard.poemapp.R;
+import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.databinding.FragmentHighBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
 
@@ -35,13 +36,20 @@ public class HighFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentHighBinding.rvStudyHigh.setLayoutManager(linearLayoutManager);
-        PrimaryStudyAdapter adapter = new PrimaryStudyAdapter();
+        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemList());
         fragmentHighBinding.rvStudyHigh.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelH().observe(this.getActivity(), new Observer<List<Poem>>() {
             @Override
             public void onChanged(List<Poem> poems) {
-                adapter.setPoems(poems);
+                if (poems!=null){
+                    mainViewModel.getPoemList().clear();
+                    mainViewModel.setPoemList(poems);
+                    adapter.setPoems(mainViewModel.getPoemList());
+                    Log.e("TAG", "onChanged: "+"high" );
+                }else {
+                    Toast.makeText(getActivity(),"暂无诗词",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

@@ -1,5 +1,6 @@
 package com.snowleopard.poemapp.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -33,22 +34,29 @@ public class DialogFragment extends Fragment implements View.OnClickListener{
         return fragmentDialogBinding.getRoot();
     }
 
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id.btn_primary:
-//                break;
-//            case R.id.btn_middle:
-//                break;
-//            case R.id.btn_high:
-//                break;
-//            case R.id.btn_random:
-//                break;
-//            default:
-//                break;
-//        }
+        int level = 0;
+        switch (view.getId()){
+            case R.id.btn_primary:
+                level=0;
+                break;
+            case R.id.btn_middle:
+                level=1;
+                break;
+            case R.id.btn_high:
+                level=2;
+                break;
+            case R.id.btn_random:
+                level=3;
+                break;
+            default:
+                break;
+        }
         Intent intent = new Intent(getActivity(), DialogActivity.class);
+        intent.putExtra("level",level);
         startActivity(intent);
-
     }
 }

@@ -16,7 +16,10 @@
         android:theme="@style/Theme.PoemAPP"
         tools:targetApi="n">
         <activity
-            android:name=".ui.PoamActivity"
+            android:name=".ui.ChangeInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PoemActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ComplexProblemActivity"
@@ -44,6 +47,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

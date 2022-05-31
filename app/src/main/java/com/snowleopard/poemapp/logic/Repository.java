@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 
 import com.snowleopard.poemapp.logic.model.Poem;
+import com.snowleopard.poemapp.logic.model.PoemDialog;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.network.PoemNetWork;
@@ -16,6 +17,8 @@ import java.util.List;
  */
 public class Repository {
 
+    private PoemDialogDao dialogDao;
+    private LiveData<List<PoemDialog>> dialogList;
     public static Repository repository;
 
     public static Repository getInstance(){
@@ -24,6 +27,7 @@ public class Repository {
         }
         return repository;
     }
+
     private MutableLiveData<User> userLiveData=new MutableLiveData<>();
 
     public LiveData<UserInfo> userLogin(User user){
@@ -44,5 +48,10 @@ public class Repository {
 
     public LiveData<List<Poem>> getPoemByLevelH(){
         return PoemNetWork.getPoemByLevelH();
+    }
+
+    public LiveData<List<PoemDialog>> getPoemDialogByLevel(int level){
+        dialogList =dialogDao.getAllPoemsByLevel(level);
+        return dialogList;
     }
 }
