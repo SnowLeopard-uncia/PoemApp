@@ -56,14 +56,14 @@
 
 
                 <ImageView
-                    android:id="@+id/collect"
+                    android:id="@+id/iv_collect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="23dp"
                     app:layout_constraintBottom_toBottomOf="@+id/poemTitle"
                     app:layout_constraintStart_toEndOf="@+id/poemTitle"
                     app:layout_constraintTop_toTopOf="@+id/poemTitle"
-                    app:srcCompat="@drawable/collect" />
+                    android:background="@drawable/selector_collect" />
 
                 <ImageView
                     android:id="@+id/play"

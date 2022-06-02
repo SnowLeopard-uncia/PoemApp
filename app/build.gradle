@@ -29,6 +29,10 @@ android {
     dataBinding {
         enabled=true
     }
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+
 }
 
 dependencies {

@@ -19,7 +19,7 @@
             android:name=".ui.ChangeInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PoemActivity"
+            android:name=".ui.poem.PoemActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ComplexProblemActivity"
@@ -37,7 +37,7 @@
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.DialogActivity"
+            android:name=".ui.dialog.DialogActivity"
             android:exported="false" />
         <activity
             android:name=".ui.register.RegisterActivity"

@@ -28,7 +28,7 @@ public interface PoemDialogDao {
     @Query("delete from poem_dialog_table")
     void deleteAll();
 
-
+//自动生成的impl类里面 public LiveData<List<PoemDialog>> getAllPoemsByLevel(final int level) { 返回值是LiveData！
     @Query("SELECT * FROM poem_dialog_table WHERE level_column =:level")
     LiveData<List<PoemDialog>> getAllPoemsByLevel(int level);
 

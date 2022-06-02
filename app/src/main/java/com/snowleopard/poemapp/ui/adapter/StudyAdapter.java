@@ -12,9 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ItemStudyBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
-import com.snowleopard.poemapp.ui.PoemActivity;
+import com.snowleopard.poemapp.ui.poem.PoemActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> {
@@ -32,6 +31,7 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
     public StudyAdapter(List<Poem> poemList) {
         this.poemList = poemList;
     }
+
         public void setPoems(List<Poem> poemList){
         this.poemList=poemList;
         //recycler View改变
@@ -42,9 +42,13 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Poem poem = poemList.get(holder.getAdapterPosition());
-        holder.itemStudyBinding.tvPoemTitle.setText(poem.getTitle());
-        holder.itemStudyBinding.tvPoemAuthor.setText(poem.getAuthor());
-        holder.itemStudyBinding.tvPoemContent.setText(poem.getOriginal());
+        holder.itemStudyBinding.setStudyAuthor(poem.getAuthor());
+        holder.itemStudyBinding.setStudyContent(poem.getOriginal());
+        holder.itemStudyBinding.setStudyTitle(poem.getTitle());
+
+//        holder.itemStudyBinding.tvPoemTitle.setText(poem.getTitle());
+//        holder.itemStudyBinding.tvPoemAuthor.setText(poem.getAuthor());
+//        holder.itemStudyBinding.tvPoemContent.setText(poem.getOriginal());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

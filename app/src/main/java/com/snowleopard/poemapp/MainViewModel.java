@@ -35,8 +35,8 @@ public class MainViewModel extends ViewModel {
         return Repository.getInstance().getPoemByLevelH();
     }
 
-    public LiveData<List<PoemDialog>> getPoemDialogByLevel(int level){
-        return Repository.repository.getPoemDialogByLevel(level);
-    }
+//    public LiveData<List<PoemDialog>> getPoemDialogByLevel(int level){
+//        return Repository.repository.getPoemDialogByLevel(level);
+//    }
 
 }

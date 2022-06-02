@@ -2,10 +2,17 @@ package com.snowleopard.poemapp.logic.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "poem_dialog_table")
 public class PoemDialog {
+
+    //There are multiple good constructors and Room will pick the no-arg constructor.
+    // You can use the @Ignore annotation to eliminate unwanted constructors
+    @Ignore
+    public PoemDialog() {
+    }
 
     //id为自增主码
     @PrimaryKey(autoGenerate = true)

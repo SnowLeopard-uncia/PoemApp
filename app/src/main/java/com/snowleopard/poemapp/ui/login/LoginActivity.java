@@ -46,6 +46,7 @@ public class LoginActivity extends BaseActivity {
                         @Override
                         public void onChanged(UserInfo userInfo) {
                             if (userInfo !=null){
+                                loginViewModel.saveUserName(userInfo.getUsername());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

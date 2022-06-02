@@ -9,6 +9,7 @@ import com.snowleopard.poemapp.logic.model.BaseResponse;
 import com.snowleopard.poemapp.logic.model.Poem;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
+import com.snowleopard.poemapp.logic.network.service.CollectionService;
 import com.snowleopard.poemapp.logic.network.service.PoemService;
 import com.snowleopard.poemapp.logic.network.service.UserService;
 import com.snowleopard.poemapp.utils.RetrofitCallback;
@@ -32,11 +33,15 @@ public class PoemNetWork {
 
     static MutableLiveData<List<Poem>> highPoemData = new MutableLiveData<>();
 
+    static MutableLiveData<Integer> isCollect = new MutableLiveData<>();
+
 
 
     private static UserService userService = ServiceCreator.create(UserService.class);
 
     private static PoemService poemService = ServiceCreator.create(PoemService.class);
+
+    private static CollectionService collectionService = ServiceCreator.create(CollectionService.class);
 
     public static LiveData<UserInfo> userLogin(User user){
         userService.userLogin(user.getUsername(), user.getPassword()).enqueue(new RetrofitCallback<BaseResponse<UserInfo>>() {
@@ -102,6 +107,18 @@ public class PoemNetWork {
         });
         return highPoemData;
     }
+
+    public static LiveData<Integer> collect(String pid,String userName){
+        collectionService.addCollection(pid,userName).enqueue(new RetrofitCallback<BaseResponse<Integer>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<Integer>> call, Response<BaseResponse<Integer>> response) {
+                Integer collect = response.body()!=null?response.body().getData():null;
+                isCollect.postValue(collect);
+            }
+        });
+        return isCollect;
+    }
+
 
 
 }
