@@ -1,6 +1,7 @@
 package com.snowleopard.poemapp.ui.dialog;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.snowleopard.poemapp.logic.Repository;
@@ -14,10 +15,13 @@ public class DialogViewModel extends ViewModel {
     private List<Dialog> dialogList = new ArrayList<>();
     private List<PoemDialog> poemList = new ArrayList<>();
     private PoemDialog poemDialog= new PoemDialog(); ; //当前的
+
+
+     MutableLiveData<Integer> poemDialogMutableLiveData= new MutableLiveData<>();
     /**
      * i是回合
      */
-   private int i=0;
+   private int i;
 
     public PoemDialog getPoemDialog() {
         return poemDialog;
@@ -44,8 +48,6 @@ public class DialogViewModel extends ViewModel {
     }
 
     public List<Dialog> getDialogList() {
-//        dialogList.add(new Dialog("你好鸦",Dialog.TYPE_ANSWER));
-//        dialogList.add(new Dialog("helli?",Dialog.TYPE_ASK));
         return dialogList;
     }
 
@@ -58,9 +60,9 @@ public class DialogViewModel extends ViewModel {
         return Repository.getInstance().getPoemDialogByLevel(level);
     }
 
-    public LiveData<PoemDialog> getPoem(){
-        return Repository.repository.getPoem(poemList,getI());
-    }
+//    public LiveData<PoemDialog> getPoem(){
+//        return Repository.repository.getPoem(poemList,getI());
+//    }
 
 
 }

@@ -40,15 +40,13 @@ public class DialogActivity extends BaseActivity {
         dialogBinding= DataBindingUtil.setContentView(this,R.layout.activity_dialog);
         dialogViewModel=new ViewModelProvider(this).get(DialogViewModel.class);
 
-
-
         DialogAdapter adapter = new DialogAdapter(dialogViewModel.getDialogList());
         dialogBinding.rvDialog.setLayoutManager(new LinearLayoutManager(this));
         dialogBinding.rvDialog.setAdapter(adapter);
 
         //清除
-        dialogViewModel.getDialogList().clear();
-
+//        dialogViewModel.getDialogList().clear();
+//
 //        dialogViewModel.setI(0);
 
         dialogBinding.btnReply.setOnClickListener(new View.OnClickListener() {
@@ -65,24 +63,26 @@ public class DialogActivity extends BaseActivity {
                     //recyclerview滚动最后一行
                     dialogBinding.etReply.setText(""); //清空输入框内容
 
+                    String answer = dialogViewModel.getPoemDialog().getAnswer();
+                    if (answer!=null && dialogViewModel.getI()<dialogViewModel.getPoemList().size()){
+                        Dialog ask;
+                        if (content.equals(answer)){
+                            ask = new Dialog("回答正确！",Dialog.TYPE_ASK);
+//                        Toast.makeText(DialogActivity.this,"正确",Toast.LENGTH_SHORT).show();
+                        }else {
+                            ask = new Dialog("不对，答案是："+answer,Dialog.TYPE_ASK);
+//                        Toast.makeText(DialogActivity.this,"错误",Toast.LENGTH_SHORT).show();
+                        }
+                        dialogViewModel.getDialogList().add(ask);
+                        pos=dialogViewModel.getDialogList().size()-1;
+                        adapter.notifyItemInserted(pos);     //adapter
+                        dialogBinding.rvDialog.scrollToPosition(pos);
+                        //recyclerview滚动最后一行
 
-
-                    if (content.equals(dialogViewModel.getPoemDialog().getAnswer())){
-
-                        Toast.makeText(DialogActivity.this,"正确",Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(DialogActivity.this,"错误",Toast.LENGTH_SHORT).show();
                     }
-//                   dialog=new Dialog(poemDialog.getAsk(),Dialog.TYPE_ASK);
-//                    dialogViewModel.getDialogList().add(dialog);
-                    //adapter
-                    dialogViewModel.getDialogList().add(new Dialog(dialogViewModel.getPoemDialog().getAsk(),Dialog.TYPE_ASK));
-                    int pos0=dialogViewModel.getDialogList().size()-1;
-                    adapter.notifyItemInserted(pos0);
-                    dialogBinding.rvDialog.scrollToPosition(pos0);
-                    //recyclerview滚动最后一行
-//                            dialogViewModel.setI(dialogViewModel.getI()+1);
-                    dialogViewModel.setI(dialogViewModel.getI()+1);
+                    int i = dialogViewModel.getI()+1;
+                    dialogViewModel.poemDialogMutableLiveData.postValue(dialogViewModel.getI());
+                    dialogViewModel.setI(i);
 
                 }else {
                     Toast.makeText(DialogActivity.this,"输入不能为空",Toast.LENGTH_SHORT).show();
@@ -90,14 +90,35 @@ public class DialogActivity extends BaseActivity {
             }
         });
 
-        dialogViewModel.getPoem().observe(DialogActivity.this, new Observer<PoemDialog>() {
+        dialogViewModel.poemDialogMutableLiveData.observe(this, new Observer<Integer>() {
             @Override
-            public void onChanged(PoemDialog poemDialog) {
-//就是getPoem这个方法确实只执行了一次，但是onChanged了三次 而且Activity都销毁了一次，还存着上一次Activity的Data
-                dialogViewModel.setPoemDialog(poemDialog);
+            public void onChanged(Integer integer) {
+                if (integer >= dialogViewModel.getPoemList().size()){
+                    dialogViewModel.getDialogList().add(new Dialog("全部答完啦",Dialog.TYPE_ASK));
+                    int pos=dialogViewModel.getDialogList().size()-1;
+                    adapter.notifyItemInserted(pos);
+                    dialogBinding.rvDialog.scrollToPosition(pos);
+                }else {
+                    PoemDialog poemDialog = dialogViewModel.getPoemList().get(integer);
+                    //初始化
+                    dialogViewModel.getDialogList().add(new Dialog(poemDialog.getAsk(),Dialog.TYPE_ASK));
+                    dialogViewModel.setPoemDialog(poemDialog);
+                    int pos=dialogViewModel.getDialogList().size()-1;
+                    adapter.notifyItemInserted(pos);
+                    dialogBinding.rvDialog.scrollToPosition(pos);
+                    //recyclerview滚动最后一行
+                }
 
             }
         });
+
+//        dialogViewModel.getPoem().observe(DialogActivity.this, new Observer<PoemDialog>() {
+//            @Override
+//            public void onChanged(PoemDialog poemDialog) {
+////就是getPoem这个方法确实只执行了一次，但是onChanged了三次 而且Activity都销毁了一次，还存着上一次Activity的Data
+//                dialogViewModel.setPoemDialog(poemDialog);
+//            }
+//        });
 
 
         /**
