@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,7 +47,8 @@ public class LoginActivity extends BaseActivity {
                         @Override
                         public void onChanged(UserInfo userInfo) {
                             if (userInfo !=null){
-                                loginViewModel.saveUserName(userInfo.getUsername());
+                                loginViewModel.saveUser(userInfo);
+                                Log.e("TAG", "onChanged: "+ userInfo.getUsername()+" "+ userInfo.getProPath());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

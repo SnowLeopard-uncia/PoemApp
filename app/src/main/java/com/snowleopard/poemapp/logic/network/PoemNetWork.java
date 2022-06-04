@@ -37,6 +37,10 @@ public class PoemNetWork {
 
     static MutableLiveData<Integer> isCollect = new MutableLiveData<>();
 
+    static MutableLiveData<String> userHead = new MutableLiveData<>();
+
+    static MutableLiveData<List<Poem>> collectionList = new MutableLiveData<>();
+
     static MutableLiveData<List<Question>> questionList = new MutableLiveData<>();
 
     private static UserService userService = ServiceCreator.create(UserService.class);
@@ -132,6 +136,17 @@ public class PoemNetWork {
             }
         });
         return questionList;
+    }
+
+    public static LiveData<List<Poem>> getCollectionList(String userName){
+        collectionService.getCollection(userName).enqueue(new RetrofitCallback<BaseResponse<List<Poem>>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<List<Poem>>> call, Response<BaseResponse<List<Poem>>> response) {
+                List<Poem> list = response.body()!=null?response.body().getData():null;
+                collectionList.postValue(list);
+            }
+        });
+        return collectionList;
     }
 
 

@@ -52,8 +52,9 @@ public interface UserService {
     @PUT("user/username")
     Call<BaseResponse<User>> changeUserName(@Body String userName);
 
-    //    //查看用户头像
-//    @GET("user/protrait")
+        //查看用户头像
+    @GET("user/protrait")
+    Call<BaseResponse<String>> getUserProtraits(@Query("username") String userName);
 //
 
     //上传单张照片

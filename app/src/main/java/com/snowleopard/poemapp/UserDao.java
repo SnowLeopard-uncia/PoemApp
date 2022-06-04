@@ -5,19 +5,24 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.snowleopard.poemapp.logic.model.User;
+import com.snowleopard.poemapp.logic.model.UserInfo;
 
 public class UserDao {
 
-   @SuppressLint("CommitPrefEdits")
-   public static void saveUser(String userName){
-        sharePreference().edit().putString("userName",userName);
-        sharePreference().edit().apply();
+
+   public static void saveUser(UserInfo userInfo){
+        sharePreference().edit()
+                .putString("userName",userInfo.getUsername())
+                .putString("userHead",userInfo.getProPath())
+                .apply();
+//        sharePreference().edit().commit();
 
    }
 
-   public static String getUserName(){
-       String userName = sharePreference().getString("userName", " ");
-       return userName;
+   public static UserInfo getUser(){
+       String userName = sharePreference().getString("userName", "hello");
+       String uesrHead = sharePreference().getString("userHead","");
+       return new UserInfo(uesrHead,userName);
    }
 
    public static  SharedPreferences sharePreference(){

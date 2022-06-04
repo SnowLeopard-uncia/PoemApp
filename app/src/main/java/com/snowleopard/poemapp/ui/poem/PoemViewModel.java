@@ -7,7 +7,7 @@ import com.snowleopard.poemapp.logic.Repository;
 public class PoemViewModel extends ViewModel {
 
     public String getUserName(){
-        return Repository.getInstance().getUserName();
+        return Repository.getInstance().getUserName().getUsername();
     }
 
 }

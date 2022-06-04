@@ -25,7 +25,7 @@
             android:name=".ui.ComplexProblemActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CollectionActivity"
+            android:name=".ui.collection.CollectionActivity"
             android:exported="false" />
         <activity
             android:name=".ui.test.FinishTestActivity"

@@ -70,16 +70,22 @@ public class Repository {
         return dialogList;
     }
 
-    public void saveUserName(String userName){
-        UserDao.saveUser(userName);
+    public void saveUser(UserInfo userInfo){
+        UserDao.saveUser(userInfo);
     }
 
-    public String getUserName(){
-       return UserDao.getUserName();
+    public UserInfo getUserName(){
+       return UserDao.getUser();
     }
 
     public LiveData<List<Question>> getQuestion(String level,String type){
         return PoemNetWork.getQuestion(type,level);
     }
+
+    public LiveData<List<Poem>> getCollection(String username){
+        return PoemNetWork.getCollectionList(username);
+    }
+
+//    public LiveData<String>
 
 }

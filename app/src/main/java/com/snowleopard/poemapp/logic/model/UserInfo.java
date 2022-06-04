@@ -1,9 +1,12 @@
 package com.snowleopard.poemapp.logic.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * 此类用于查看用户信息
  */
 public class UserInfo {
+    @SerializedName("pro_path") //这是一个bug的来源 忘记加序列化的名字了
     private String proPath;
 
     private String username;

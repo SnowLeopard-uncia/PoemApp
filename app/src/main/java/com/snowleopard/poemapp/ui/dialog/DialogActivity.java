@@ -41,7 +41,6 @@ public class DialogActivity extends BaseActivity {
         dialogBinding = DataBindingUtil.setContentView(this, R.layout.activity_dialog);
         dialogViewModel = new ViewModelProvider(this).get(DialogViewModel.class);
 
-
         Log.e("TAG", "onCreate: " + "重走了一次");
         dialogBinding.rvDialog.setLayoutManager(new LinearLayoutManager(this));
         dialogBinding.rvDialog.setAdapter(dialogViewModel.getAdapter());

@@ -12,6 +12,7 @@
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_choose_btn_true.xml" value="0.1225" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_dialog_btn.xml" value="0.144" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_imput_view.xml" value="0.144" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_item_mistakes.xml" value="0.1475" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_main.xml" value="0.1225" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_person_head.xml" value="0.14" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/bg_person_item.xml" value="0.14" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/selector_study.xml" value="0.1395" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/drawable/selector_test.xml" value="0.1395" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_change_info.xml" value="0.14764492753623187" />
-        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_collection.xml" value="0.13269927536231885" />
+        <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_collection.xml" value="0.1" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_complex_problem.xml" value="0.14130434782608695" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_dialog.xml" value="0.4466666666666667" />
         <entry key="..\:/Android/PoemAPP/app/src/main/res/layout/activity_finish_test.xml" value="0.22" />

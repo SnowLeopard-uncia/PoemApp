@@ -12,10 +12,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @param <T>
  */
 public class ServiceCreator<T> {
-    //电脑连接手机热点
+    //电脑连接手机热点  但是
 //    private static final String BASE_URL="http://192.168.43.174:8080";
-    //手机连接电脑热点
+    //手机连接电脑热点  这个不关闭防火墙也能用
     private static final String BASE_URL="http://192.168.137.1:8080";
+//电脑连接有线的 这个要关闭防火墙才能用
+// 头像的URL返回的是电脑的ipconfig的IPV4 的地址  但是也可以用137的那个地址 也不关防火墙能用，感觉不关防火墙的前提是我手机在共享电脑网络
+//    private static final String BASE_URL="http://192.168.180.171:8080";
 
 //   static OkHttpClient.Builder builder = new OkHttpClient().newBuilder().addInterceptor(new BaseInterceptor());
 //

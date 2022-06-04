@@ -13,8 +13,8 @@ public class LoginViewModel extends ViewModel {
         return Repository.getInstance().userLogin(user);
     }
 
-    public void saveUserName(String userName){
-        Repository.getInstance().saveUserName(userName);
+    public void saveUser(UserInfo userInfo){
+        Repository.getInstance().saveUser(userInfo);
     }
 
 }
