@@ -47,6 +47,9 @@ public class DialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public DialogAdapter(List<Dialog> dialogList) {
         dialogList.add(new Dialog("欢迎来到对王之王",Dialog.TYPE_ASK));
         dialogList.add(new Dialog("发送任意内容开始",Dialog.TYPE_ASK));
+//        不能在这里初始化的两句，因为旋转屏幕时Activity重走，又会重写初始化
+//        又或者有没有想过让View Model持有Adapter 如果让View Model持有Adapter，
+//        这里就可以初始化，因为这样Activity旋转屏幕就只会创建一个Adapter
         this.dialogList = dialogList;
     }
 

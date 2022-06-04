@@ -25,5 +25,11 @@
     <string name="start_test">开始测试</string>
     <string name="entering">对方正在输入中......</string>
     <string name="dialog_name">和你对句的AI</string>
+    <string name="explain">解析：\n</string>
+    <string name="num">道</string>
+    <string name="correct">正确：</string>
+    <string name="mistakes">错误：</string>
+    <string name="rate">正确率：</string>
+    <string name="rate_sigh">%</string>
 
 </resources>

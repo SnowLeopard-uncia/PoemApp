@@ -13,6 +13,7 @@ import com.snowleopard.poemapp.UserDao;
 import com.snowleopard.poemapp.logic.model.Dialog;
 import com.snowleopard.poemapp.logic.model.Poem;
 import com.snowleopard.poemapp.logic.model.PoemDialog;
+import com.snowleopard.poemapp.logic.model.Question;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.network.PoemNetWork;
@@ -68,9 +69,6 @@ public class Repository {
         dialogList =dialogDao.getAllPoemsByLevel(level);
         return dialogList;
     }
-    public LiveData<PoemDialog> getPoem(List<PoemDialog> list,int i){
-        return PoemDialogService.getPoem(list,i);
-    }
 
     public void saveUserName(String userName){
         UserDao.saveUser(userName);
@@ -78,6 +76,10 @@ public class Repository {
 
     public String getUserName(){
        return UserDao.getUserName();
+    }
+
+    public LiveData<List<Question>> getQuestion(String level,String type){
+        return PoemNetWork.getQuestion(type,level);
     }
 
 }

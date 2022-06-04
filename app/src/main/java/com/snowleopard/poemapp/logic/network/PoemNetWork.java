@@ -7,10 +7,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.snowleopard.poemapp.logic.model.BaseResponse;
 import com.snowleopard.poemapp.logic.model.Poem;
+import com.snowleopard.poemapp.logic.model.Question;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.network.service.CollectionService;
 import com.snowleopard.poemapp.logic.network.service.PoemService;
+import com.snowleopard.poemapp.logic.network.service.QuestionService;
 import com.snowleopard.poemapp.logic.network.service.UserService;
 import com.snowleopard.poemapp.utils.RetrofitCallback;
 
@@ -35,11 +37,13 @@ public class PoemNetWork {
 
     static MutableLiveData<Integer> isCollect = new MutableLiveData<>();
 
-
+    static MutableLiveData<List<Question>> questionList = new MutableLiveData<>();
 
     private static UserService userService = ServiceCreator.create(UserService.class);
 
     private static PoemService poemService = ServiceCreator.create(PoemService.class);
+
+    private static QuestionService questionService = ServiceCreator.create(QuestionService.class);
 
     private static CollectionService collectionService = ServiceCreator.create(CollectionService.class);
 
@@ -119,6 +123,16 @@ public class PoemNetWork {
         return isCollect;
     }
 
+    public static LiveData<List<Question>> getQuestion(String type,String level){
+        questionService.getQuestion(level,type).enqueue(new RetrofitCallback<BaseResponse<List<Question>>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<List<Question>>> call, Response<BaseResponse<List<Question>>> response) {
+                List<Question> list = response.body()!=null?response.body().getData():null;
+                questionList.postValue(list);
+            }
+        });
+        return questionList;
+    }
 
 
 }

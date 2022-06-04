@@ -29,7 +29,7 @@ public interface UserService {
 
     //用户登录
 
-    @FormUrlEncoded
+    @FormUrlEncoded  //用@Filed要搭配这个使用
     @POST("/user/login")
 //    Call<BaseResponse<User>> userLogin(@Body UserLogin userLogin);
     Call<BaseResponse<UserInfo>> userLogin(@Field("password")String password, @Field("username")String username);

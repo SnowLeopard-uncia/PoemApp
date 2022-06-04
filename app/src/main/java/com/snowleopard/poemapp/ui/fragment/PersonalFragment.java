@@ -50,6 +50,8 @@ public class PersonalFragment extends Fragment {
             }
         });
 
+
+
         return personalBinding.getRoot();
     }
 }

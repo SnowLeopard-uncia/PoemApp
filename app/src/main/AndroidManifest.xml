@@ -28,10 +28,10 @@
             android:name=".ui.CollectionActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.FinishTestActivity"
+            android:name=".ui.test.FinishTestActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.TestActivity"
+            android:name=".ui.test.TestActivity"
             android:exported="false" />
         <activity
             android:name=".BaseActivity"

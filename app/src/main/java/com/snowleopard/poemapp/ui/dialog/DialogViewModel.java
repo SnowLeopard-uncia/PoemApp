@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.snowleopard.poemapp.logic.Repository;
 import com.snowleopard.poemapp.logic.model.Dialog;
 import com.snowleopard.poemapp.logic.model.PoemDialog;
+import com.snowleopard.poemapp.ui.adapter.DialogAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,31 @@ public class DialogViewModel extends ViewModel {
     private List<Dialog> dialogList = new ArrayList<>();
     private List<PoemDialog> poemList = new ArrayList<>();
     private PoemDialog poemDialog= new PoemDialog(); ; //当前的
+   private DialogAdapter adapter = new DialogAdapter(getDialogList());
 
 
-     MutableLiveData<Integer> poemDialogMutableLiveData= new MutableLiveData<>();
+    public DialogViewModel() {
+//        dialogList.add(new Dialog("欢迎来到对王之王",Dialog.TYPE_ASK));
+//        dialogList.add(new Dialog("发送任意内容开始",Dialog.TYPE_ASK));
+    }
+
+//    如果这里有一个有参构造函数，但是没有无参构造函数，在Activity里面调用View Model就会报错
+//    dialogViewModel=new ViewModelProvider(this).get(DialogViewModel.class);
+//    会说 不能create a instance of DialogViewModel.class
+
+//    public DialogViewModel(DialogAdapter adapter) {
+//        this.adapter = adapter;
+//    }
+
+    public DialogAdapter getAdapter() {
+        return adapter;
+    }
+
+    public void setAdapter(DialogAdapter adapter) {
+        this.adapter = adapter;
+    }
+
+    MutableLiveData<Integer> poemDialogMutableLiveData= new MutableLiveData<>();
     /**
      * i是回合
      */

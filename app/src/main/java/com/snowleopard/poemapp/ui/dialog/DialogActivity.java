@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.hardware.lights.LightsManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,13 +37,14 @@ public class DialogActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-         level = intent.getIntExtra("level",0);
-        dialogBinding= DataBindingUtil.setContentView(this,R.layout.activity_dialog);
-        dialogViewModel=new ViewModelProvider(this).get(DialogViewModel.class);
+        level = intent.getIntExtra("level", 0);
+        dialogBinding = DataBindingUtil.setContentView(this, R.layout.activity_dialog);
+        dialogViewModel = new ViewModelProvider(this).get(DialogViewModel.class);
 
-        DialogAdapter adapter = new DialogAdapter(dialogViewModel.getDialogList());
+
+        Log.e("TAG", "onCreate: " + "重走了一次");
         dialogBinding.rvDialog.setLayoutManager(new LinearLayoutManager(this));
-        dialogBinding.rvDialog.setAdapter(adapter);
+        dialogBinding.rvDialog.setAdapter(dialogViewModel.getAdapter());
 
         //清除
 //        dialogViewModel.getDialogList().clear();
@@ -52,59 +54,60 @@ public class DialogActivity extends BaseActivity {
         dialogBinding.btnReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 content=dialogBinding.etReply.getText().toString();
-                if (!"".equals(content)){
-                    Dialog dialog = new Dialog(content,Dialog.TYPE_ANSWER);
+                content = dialogBinding.etReply.getText().toString();
+                if (!"".equals(content)) {
+                    Dialog dialog = new Dialog(content, Dialog.TYPE_ANSWER);
                     dialogViewModel.getDialogList().add(dialog);
 
-                    int pos=dialogViewModel.getDialogList().size()-1;
-                    adapter.notifyItemInserted(pos);
+                    int pos = dialogViewModel.getDialogList().size() - 1;
+                    dialogViewModel.getAdapter().notifyItemInserted(pos);
                     dialogBinding.rvDialog.scrollToPosition(pos);
                     //recyclerview滚动最后一行
                     dialogBinding.etReply.setText(""); //清空输入框内容
 
                     String answer = dialogViewModel.getPoemDialog().getAnswer();
-                    if (answer!=null && dialogViewModel.getI()<dialogViewModel.getPoemList().size()){
+                    if (answer != null && dialogViewModel.getI() <= dialogViewModel.getPoemList().size()) {
                         Dialog ask;
-                        if (content.equals(answer)){
-                            ask = new Dialog("回答正确！",Dialog.TYPE_ASK);
+                        if (content.equals(answer)) {
+                            ask = new Dialog("回答正确！", Dialog.TYPE_ASK);
 //                        Toast.makeText(DialogActivity.this,"正确",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ask = new Dialog("不对，答案是："+answer,Dialog.TYPE_ASK);
+                        } else {
+                            ask = new Dialog("不对，答案是：" + answer, Dialog.TYPE_ASK);
 //                        Toast.makeText(DialogActivity.this,"错误",Toast.LENGTH_SHORT).show();
                         }
                         dialogViewModel.getDialogList().add(ask);
-                        pos=dialogViewModel.getDialogList().size()-1;
-                        adapter.notifyItemInserted(pos);     //adapter
+                        pos = dialogViewModel.getDialogList().size() - 1;
+                        dialogViewModel.getAdapter().notifyItemInserted(pos);     //adapter
                         dialogBinding.rvDialog.scrollToPosition(pos);
                         //recyclerview滚动最后一行
 
                     }
-                    int i = dialogViewModel.getI()+1;
+                    int i = dialogViewModel.getI() + 1;
                     dialogViewModel.poemDialogMutableLiveData.postValue(dialogViewModel.getI());
                     dialogViewModel.setI(i);
 
-                }else {
-                    Toast.makeText(DialogActivity.this,"输入不能为空",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(DialogActivity.this, "输入不能为空", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        //旋转屏幕的时候这里会重复观察
         dialogViewModel.poemDialogMutableLiveData.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
-                if (integer >= dialogViewModel.getPoemList().size()){
-                    dialogViewModel.getDialogList().add(new Dialog("全部答完啦",Dialog.TYPE_ASK));
-                    int pos=dialogViewModel.getDialogList().size()-1;
-                    adapter.notifyItemInserted(pos);
+                if (integer >= dialogViewModel.getPoemList().size()) {
+                    dialogViewModel.getDialogList().add(new Dialog("全部答完啦", Dialog.TYPE_ASK));
+                    int pos = dialogViewModel.getDialogList().size() - 1;
+                    dialogViewModel.getAdapter().notifyItemInserted(pos);
                     dialogBinding.rvDialog.scrollToPosition(pos);
-                }else {
+                } else {
                     PoemDialog poemDialog = dialogViewModel.getPoemList().get(integer);
                     //初始化
-                    dialogViewModel.getDialogList().add(new Dialog(poemDialog.getAsk(),Dialog.TYPE_ASK));
+                    dialogViewModel.getDialogList().add(new Dialog(poemDialog.getAsk(), Dialog.TYPE_ASK));
                     dialogViewModel.setPoemDialog(poemDialog);
-                    int pos=dialogViewModel.getDialogList().size()-1;
-                    adapter.notifyItemInserted(pos);
+                    int pos = dialogViewModel.getDialogList().size() - 1;
+                    dialogViewModel.getAdapter().notifyItemInserted(pos);
                     dialogBinding.rvDialog.scrollToPosition(pos);
                     //recyclerview滚动最后一行
                 }
