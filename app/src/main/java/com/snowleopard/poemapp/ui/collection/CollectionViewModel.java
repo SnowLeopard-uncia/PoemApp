@@ -16,16 +16,6 @@ public class CollectionViewModel extends ViewModel {
 
     private List<Poem> poemList = new ArrayList<>();
 
-    public CollectionAdapter getAdapter() {
-        return adapter;
-    }
-
-    public void setAdapter(CollectionAdapter adapter) {
-        this.adapter = adapter;
-    }
-
-    private CollectionAdapter adapter = new CollectionAdapter(getPoemList());
-
     public List<Poem> getPoemList() {
         return poemList;
     }

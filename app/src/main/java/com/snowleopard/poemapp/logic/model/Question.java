@@ -2,12 +2,14 @@ package com.snowleopard.poemapp.logic.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 
 //后台服务器返回的json字段经常不符合java的驼峰命名规范，有的带下划线，有的首字母没有小写，
 // 如果我们不想改变原有的Java类变量名又想成功解析，可以借助@SerializedName
 
 
-public class Question {
+public class Question implements Serializable {
 
     @SerializedName("question")
     private String question;

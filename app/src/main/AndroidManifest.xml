@@ -22,7 +22,7 @@
             android:name=".ui.poem.PoemActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ComplexProblemActivity"
+            android:name=".ui.mistakes.ComplexProblemActivity"
             android:exported="false" />
         <activity
             android:name=".ui.collection.CollectionActivity"

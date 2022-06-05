@@ -47,29 +47,32 @@ public class TestActivity extends BaseActivity {
         activityTestBinding.btnTestNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!testViewModel.isGetRight()){
-                    if (testViewModel.getAnswer().equals(testViewModel.getQuestion().getRightChoice())){
-                        testViewModel.getCorrectMistakes().setCorrectNum(testViewModel.getCorrectMistakes().getCorrectNum()+1);
+                if (!testViewModel.isGetRight()) {
+                    if (testViewModel.getAnswer().equals(testViewModel.getQuestion().getRightChoice())) {
+                        testViewModel.getCorrectMistakes().setCorrectNum(testViewModel.getCorrectMistakes().getCorrectNum() + 1);
 
-                        Toast.makeText(TestActivity.this,"回答正确",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TestActivity.this, "回答正确", Toast.LENGTH_SHORT).show();
                         testViewModel.setI(testViewModel.getI() + 1);
                         testViewModel.mutableLiveData.postValue(testViewModel.getI());
                         activityTestBinding.tvTestRight.setVisibility(View.GONE);
-                    }else {
-                        testViewModel.getCorrectMistakes().setMistakesNum(testViewModel.getCorrectMistakes().getMistakesNum()+1);
+                    } else {
+                        testViewModel.getCorrectMistakes().setMistakesNum(testViewModel.getCorrectMistakes().getMistakesNum() + 1);
+                        Toast.makeText(TestActivity.this, "回答错误", Toast.LENGTH_SHORT).show();
+                        disableRadioGroup(activityTestBinding.rgTestChooseAnswer); //禁用点击按钮
 
-                        Toast.makeText(TestActivity.this,"回答错误",Toast.LENGTH_SHORT).show();
                         radioButton.setBackground(getResources().getDrawable(R.drawable.bg_btn_incorrect));
                         activityTestBinding.tvTestRight.setVisibility(View.VISIBLE);
                         activityTestBinding.btnTestNext.setText("下一题");
                         testViewModel.setGetRight(true);
+
                     }
-                }else {
+                } else {
                     testViewModel.setI(testViewModel.getI() + 1);
                     testViewModel.mutableLiveData.postValue(testViewModel.getI());
                     activityTestBinding.tvTestRight.setVisibility(View.GONE);
                     activityTestBinding.btnTestNext.setText("确定");
                     testViewModel.setGetRight(false);
+                    enableRadioGroup(activityTestBinding.rgTestChooseAnswer);
                 }
 
 
@@ -80,7 +83,7 @@ public class TestActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 radioButton = findViewById(checkedId);
-               testViewModel.setAnswer((String) radioButton.getText());
+                testViewModel.setAnswer((String) radioButton.getText());
             }
         });
 
@@ -88,7 +91,7 @@ public class TestActivity extends BaseActivity {
             @Override
             public void onChanged(Integer integer) {
                 Message message = Message.obtain();
-                message.what=1;
+                message.what = 1;
                 handler.sendMessage(message);
             }
         });
@@ -119,8 +122,8 @@ public class TestActivity extends BaseActivity {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if (msg.what == 1) {
-               //testViewModel得到的是一个问题list，这里先初始化第一条
-                if (testViewModel.getI()<testViewModel.getQuestionList().size()) {
+                //testViewModel得到的是一个问题list，这里先初始化第一条
+                if (testViewModel.getI() < testViewModel.getQuestionList().size()) {
                     activityTestBinding.rgTestChooseAnswer.removeAllViews(); //因为复用，所以先删除前面创建的控件，不然会重复
 
                     Question question = testViewModel.getQuestionList().get(testViewModel.getI());
@@ -143,21 +146,21 @@ public class TestActivity extends BaseActivity {
                                 .LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT);
                         //RasioButton 的边距
-                        layoutParams.setMargins(5,15,5,20);
+                        layoutParams.setMargins(5, 15, 5, 20);
 //它的父布局应该是RadioGroup不是constraintLayout
                         activityTestBinding.rgTestChooseAnswer.addView(radioButton, layoutParams);
 //                        activityTestBinding.constraintLayout.addView(radioButton, layoutParams);
                     }
 
-                    msg.what=0;
-                }else {
+                    msg.what = 0;
+                } else {
 
-                    BigDecimal bigDecimal = BigDecimal.valueOf(testViewModel.getCorrectMistakes().getCorrectNum()/testViewModel.getQuestionList().size());
+                    BigDecimal bigDecimal = BigDecimal.valueOf(testViewModel.getCorrectMistakes().getCorrectNum() / testViewModel.getQuestionList().size());
 //                    对double类型四舍五入
-                    double rate = bigDecimal.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+                    double rate = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                     testViewModel.getCorrectMistakes().setRate(rate);
                     Intent intent = new Intent(TestActivity.this, FinishTestActivity.class);
-                    intent.putExtra("rate_data",testViewModel.getCorrectMistakes());
+                    intent.putExtra("rate_data", testViewModel.getCorrectMistakes());
                     startActivity(intent);
                     finish();
                 }
@@ -166,5 +169,19 @@ public class TestActivity extends BaseActivity {
         }
     };
 
+
+    //禁用按钮
+    public void disableRadioGroup(RadioGroup testRadioGroup) {
+        for (int i = 0; i < testRadioGroup.getChildCount(); i++) {
+            testRadioGroup.getChildAt(i).setEnabled(false);
+        }
+    }
+
+    //启用按钮
+    public void enableRadioGroup(RadioGroup testRadioGroup) {
+        for (int i = 0; i < testRadioGroup.getChildCount(); i++) {
+            testRadioGroup.getChildAt(i).setEnabled(true);
+        }
+    }
 
 }

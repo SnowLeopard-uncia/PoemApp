@@ -86,6 +86,8 @@ public class Repository {
         return PoemNetWork.getCollectionList(username);
     }
 
-//    public LiveData<String>
+    public LiveData<List<Question>> getMistakesList(String username){
+        return PoemNetWork.getMistakesList(username);
+    }
 
 }

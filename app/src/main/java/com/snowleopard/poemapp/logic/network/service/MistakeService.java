@@ -20,5 +20,5 @@ public interface MistakeService {
 
     //查看错题
     @GET("/mistakes/questions")
-    Call<BaseResponse<List<Question>>> getQuestion(@Query("username") String userName);
+    Call<BaseResponse<List<Question>>> getMistakesList(@Query("username") String userName);
 }

@@ -19,7 +19,7 @@ import com.snowleopard.poemapp.databinding.FragmentPersonalBinding;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.ui.ChangeInfoActivity;
 import com.snowleopard.poemapp.ui.collection.CollectionActivity;
-import com.snowleopard.poemapp.ui.ComplexProblemActivity;
+import com.snowleopard.poemapp.ui.mistakes.ComplexProblemActivity;
 
 public class PersonalFragment extends Fragment {
 

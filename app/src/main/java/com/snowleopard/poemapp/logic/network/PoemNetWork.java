@@ -11,6 +11,7 @@ import com.snowleopard.poemapp.logic.model.Question;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.network.service.CollectionService;
+import com.snowleopard.poemapp.logic.network.service.MistakeService;
 import com.snowleopard.poemapp.logic.network.service.PoemService;
 import com.snowleopard.poemapp.logic.network.service.QuestionService;
 import com.snowleopard.poemapp.logic.network.service.UserService;
@@ -43,6 +44,8 @@ public class PoemNetWork {
 
     static MutableLiveData<List<Question>> questionList = new MutableLiveData<>();
 
+    static MutableLiveData<List<Question>> mistakesList = new MutableLiveData<>();
+
     private static UserService userService = ServiceCreator.create(UserService.class);
 
     private static PoemService poemService = ServiceCreator.create(PoemService.class);
@@ -50,6 +53,8 @@ public class PoemNetWork {
     private static QuestionService questionService = ServiceCreator.create(QuestionService.class);
 
     private static CollectionService collectionService = ServiceCreator.create(CollectionService.class);
+
+    private static MistakeService mistakeService = ServiceCreator.create(MistakeService.class);
 
     public static LiveData<UserInfo> userLogin(User user){
         userService.userLogin(user.getUsername(), user.getPassword()).enqueue(new RetrofitCallback<BaseResponse<UserInfo>>() {
@@ -149,5 +154,15 @@ public class PoemNetWork {
         return collectionList;
     }
 
+    public static LiveData<List<Question>> getMistakesList(String userName){
+        mistakeService.getMistakesList(userName).enqueue(new RetrofitCallback<BaseResponse<List<Question>>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<List<Question>>> call, Response<BaseResponse<List<Question>>> response) {
+                List<Question> list = response.body()!= null?response.body().getData():null;
+                mistakesList.postValue(list);
+            }
+        });
+        return mistakesList;
+    }
 
 }
