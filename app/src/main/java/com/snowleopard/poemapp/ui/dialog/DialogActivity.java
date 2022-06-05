@@ -45,6 +45,13 @@ public class DialogActivity extends BaseActivity {
         dialogBinding.rvDialog.setLayoutManager(new LinearLayoutManager(this));
         dialogBinding.rvDialog.setAdapter(dialogViewModel.getAdapter());
 
+        dialogBinding.ivBackDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         //清除
 //        dialogViewModel.getDialogList().clear();
 //

@@ -35,7 +35,6 @@ public class CollectionActivity extends BaseActivity {
         activityCollectionBinding = DataBindingUtil.setContentView(this,R.layout.activity_collection);
         collectionViewModel = new ViewModelProvider(this).get(CollectionViewModel.class);
 
-
         collectionViewModel.getCollectionList(collectionViewModel.getUser().getUsername()).observe(this, new Observer<List<Poem>>() {
 
             @Override

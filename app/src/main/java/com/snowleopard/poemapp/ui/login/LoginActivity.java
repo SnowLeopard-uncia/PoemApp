@@ -48,7 +48,6 @@ public class LoginActivity extends BaseActivity {
                         public void onChanged(UserInfo userInfo) {
                             if (userInfo !=null){
                                 loginViewModel.saveUser(userInfo);
-                                Log.e("TAG", "onChanged: "+ userInfo.getUsername()+" "+ userInfo.getProPath());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

@@ -4,13 +4,17 @@ import com.snowleopard.poemapp.logic.model.BaseResponse;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 //前面的GET、POST、DELETE、PUT，是请求方法，加上注解之后，Retrofit会用这些方法请求（注解的原理要看）
@@ -39,8 +43,12 @@ public interface UserService {
     // 并放到HTTP请求的body部分，服务器在收到请求之后只需要从body中将这部分数据解析出来即可【如果是两个参数怎么声明？】
     //使用ResponseBody，表示Retrofit能够接收任意类型的响应数据，并且不会对响应数据进行解析
     //用户修改密码
+    @FormUrlEncoded
     @PUT("user/password")
-    Call<BaseResponse<User>> changePassword(@Body String userName, String password);
+    Call<BaseResponse<UserInfo>> changePassword(@Field("username") String userName,
+                                            @Field("oldPassword") String oldPassword,
+                                            @Field("newPassword") String newPassword
+    );
 
     //用户注册接口
     @FormUrlEncoded
@@ -48,7 +56,7 @@ public interface UserService {
 //    Call<BaseResponse<User>> userRegister(@Body String userName,String password);
     Call<BaseResponse<UserInfo>> userRegister(@Field("password")String password, @Field("username")String username);
 
-    //用户更改用户名
+    //用户更改用户名 后端接口有问题
     @PUT("user/username")
     Call<BaseResponse<User>> changeUserName(@Body String userName);
 
@@ -57,7 +65,9 @@ public interface UserService {
     Call<BaseResponse<String>> getUserProtraits(@Query("username") String userName);
 //
 
-    //上传单张照片
-//    @POST("user/protrait")
-
+    //上传单张照片 头像
+    @Multipart  //注解表示可以多个@Part
+    @POST("user/protrait")
+    Call<BaseResponse<String>> postPortrait(@Part("username") RequestBody userName, @Part MultipartBody.Part file);
+//RequestBody 表示传递简单键值对， MultipartBody.Part表示文件
 }

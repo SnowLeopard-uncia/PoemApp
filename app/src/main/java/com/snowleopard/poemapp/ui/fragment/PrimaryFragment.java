@@ -58,9 +58,6 @@ public class PrimaryFragment extends Fragment {
             }
         });
 
-
-
-
         return fragmentPrimaryBinding.getRoot();
     }
 

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.snowleopard.poemapp.MainViewModel;
+import com.snowleopard.poemapp.ui.adapter.HighStudyAdapter;
 import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.databinding.FragmentHighBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
@@ -36,7 +37,7 @@ public class HighFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentHighBinding.rvStudyHigh.setLayoutManager(linearLayoutManager);
-        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemList());
+        HighStudyAdapter adapter = new HighStudyAdapter(mainViewModel.getPoemList());
         fragmentHighBinding.rvStudyHigh.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelH().observe(this.getActivity(), new Observer<List<Poem>>() {

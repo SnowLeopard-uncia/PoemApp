@@ -49,7 +49,7 @@ public class Repository {
        return PoemNetWork.userLogin(user);
     }
 
-    public LiveData<String> userRegister(User user){
+    public LiveData<UserInfo> userRegister(User user){
         return PoemNetWork.userRegister(user);
     }
 
@@ -88,6 +88,14 @@ public class Repository {
 
     public LiveData<List<Question>> getMistakesList(String username){
         return PoemNetWork.getMistakesList(username);
+    }
+
+    public LiveData<UserInfo> changePassword(String userName,String oldPassword,String newPassword){
+        return PoemNetWork.changePassword(userName,oldPassword,newPassword);
+    }
+
+    public LiveData<String> uploadPortrait(String userName,String filePath){
+        return PoemNetWork.uploadPortrait(userName,filePath);
     }
 
 }

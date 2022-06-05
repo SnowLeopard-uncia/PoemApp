@@ -16,8 +16,7 @@ import com.snowleopard.poemapp.ui.poem.PoemActivity;
 
 import java.util.List;
 
-public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> {
-
+public class MiddleStudyAdapter extends RecyclerView.Adapter<MiddleStudyAdapter.ViewHolder> {
     private List<Poem> poemList;
     @NonNull
     @Override
@@ -27,17 +26,14 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
-
-    public StudyAdapter(List<Poem> poemList) {
+    public MiddleStudyAdapter(List<Poem> poemList) {
         this.poemList = poemList;
     }
-
-        public void setPoems(List<Poem> poemList){
+    public void setPoems(List<Poem> poemList){
         this.poemList=poemList;
         //recycler View改变
         notifyDataSetChanged(); //这个放在外面还是放在里面效果都是一样
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -46,6 +42,9 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
         holder.itemStudyBinding.setStudyContent(poem.getOriginal());
         holder.itemStudyBinding.setStudyTitle(poem.getTitle());
 
+//        holder.itemStudyBinding.tvPoemTitle.setText(poem.getTitle());
+//        holder.itemStudyBinding.tvPoemAuthor.setText(poem.getAuthor());
+//        holder.itemStudyBinding.tvPoemContent.setText(poem.getOriginal());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,18 +53,15 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
                 view.getContext().startActivity(intent);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
         return poemList.size();
     }
-    //这个大概是初始化recyclerview的时候用的，因为我写过如果list是null就返回0，一开始应该所有list都是null，所以就没有返回【？】
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ItemStudyBinding itemStudyBinding;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemStudyBinding= DataBindingUtil.bind(itemView);

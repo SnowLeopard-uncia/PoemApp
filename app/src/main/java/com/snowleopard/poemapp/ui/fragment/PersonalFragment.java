@@ -13,11 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.snowleopard.poemapp.MainViewModel;
 import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.FragmentPersonalBinding;
 import com.snowleopard.poemapp.logic.model.UserInfo;
-import com.snowleopard.poemapp.ui.ChangeInfoActivity;
+import com.snowleopard.poemapp.ui.changeinfo.ChangeInfoActivity;
 import com.snowleopard.poemapp.ui.collection.CollectionActivity;
 import com.snowleopard.poemapp.ui.mistakes.ComplexProblemActivity;
 
@@ -42,9 +45,12 @@ public class PersonalFragment extends Fragment {
         personalBinding.setTvUsernames(userInfo.getUsername());  //嗯就是被这个覆盖
 
         Log.e("TAG", "onCreateView: "+userInfo.getProPath());
-
+ //初始化
         Glide.with(requireActivity())
                 .load(userInfo.getProPath())
+                .apply(RequestOptions.bitmapTransform(new CircleCrop())) //使用Glide展示圆形图片
+//                .skipMemoryCache(true) //不使用缓存
+//                .diskCacheStrategy(DiskCacheStrategy.NONE) //不使用磁盘缓存  是用来试试看换头像那里的更新 并不能
                 .error(R.drawable.error)
                 .into(personalBinding.ivHead);
 
@@ -72,8 +78,6 @@ public class PersonalFragment extends Fragment {
             }
         });
 
-
-
         return personalBinding.getRoot();
     }
 
@@ -82,19 +86,31 @@ public class PersonalFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        //这个的话，是用来返回的时候更改头像
         Log.e("TAG", "onResume: " );
+        UserInfo userInfo = mainViewModel.getUser();
+        Glide.with(requireActivity())
+                .load(userInfo.getProPath())
+                .apply(RequestOptions.bitmapTransform(new CircleCrop())) //使用Glide展示圆形图片
+//                .skipMemoryCache(true) //不使用缓存
+//                .diskCacheStrategy(DiskCacheStrategy.NONE) //不使用磁盘缓存  是用来试试看换头像那里的更新 并不能
+                .error(R.drawable.error)
+                .into(personalBinding.ivHead);
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.e("TAG", "onActivityCreated: ");
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Log.e("TAG", "onStart: " );
+
     }
 
     @Override

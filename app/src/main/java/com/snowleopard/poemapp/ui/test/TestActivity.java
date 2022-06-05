@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class TestActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         activityTestBinding = DataBindingUtil.setContentView(this, R.layout.activity_test);
         testViewModel = new ViewModelProvider(this).get(TestViewModel.class);
+
         getQuestionList();
 
 
@@ -154,10 +156,14 @@ public class TestActivity extends BaseActivity {
 
                     msg.what = 0;
                 } else {
-
-                    BigDecimal bigDecimal = BigDecimal.valueOf(testViewModel.getCorrectMistakes().getCorrectNum() / testViewModel.getQuestionList().size());
-//                    对double类型四舍五入
+  //一个BUG，就是如果这里两个都是int的话，相除直接舍弃小数点后，所以会得到0，所以要转换成double来运算
+                    double correct = testViewModel.getCorrectMistakes().getCorrectNum();
+                    double all = testViewModel.getQuestionList().size();
+                    BigDecimal bigDecimal = BigDecimal.valueOf(( correct/all )* 100L);
+//                    对double类型四舍五入 小数点后两位
                     double rate = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+//                    double rate = ( correct/all )* 100;
+                    Log.e("TAG", "handleMessage: "+correct + "  "+all+ "  " +rate );
                     testViewModel.getCorrectMistakes().setRate(rate);
                     Intent intent = new Intent(TestActivity.this, FinishTestActivity.class);
                     intent.putExtra("rate_data", testViewModel.getCorrectMistakes());

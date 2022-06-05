@@ -4,6 +4,9 @@
     package="com.snowleopard.poemapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<!--    这个要加，不然的话，前面那个动态授予权限无法授予-->
 
     <application
         android:name=".MyApplication"
@@ -14,9 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PoemAPP"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="n">
         <activity
-            android:name=".ui.ChangeInfoActivity"
+            android:name=".ui.changeinfo.ChangeInfoActivity"
             android:exported="false" />
         <activity
             android:name=".ui.poem.PoemActivity"

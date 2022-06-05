@@ -16,6 +16,7 @@ import com.snowleopard.poemapp.MainActivity;
 import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityRegisterBinding;
 import com.snowleopard.poemapp.logic.model.User;
+import com.snowleopard.poemapp.logic.model.UserInfo;
 
 public class RegisterActivity extends BaseActivity {
 
@@ -44,9 +45,10 @@ public class RegisterActivity extends BaseActivity {
                    Toast.makeText(RegisterActivity.this,"两次密码不一致",Toast.LENGTH_SHORT).show();
                }else {
                    User user = new User(password,userName);
-                   registerViewModel.userRegister(user).observe(RegisterActivity.this, new Observer<String>() {
+                   registerViewModel.userRegister(user).observe(RegisterActivity.this, new Observer<UserInfo>() {
                        @Override
-                       public void onChanged(String s) {
+                       public void onChanged(UserInfo userInfo) {
+                           registerViewModel.saveUser(userInfo);
                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                            startActivity(intent);
                            finish();

@@ -25,6 +25,7 @@ public class PoemActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         poamBinding= DataBindingUtil.setContentView(this,R.layout.activity_poam);
 
         poemViewModel=  new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.

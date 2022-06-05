@@ -15,18 +15,24 @@ import com.snowleopard.poemapp.logic.network.service.MistakeService;
 import com.snowleopard.poemapp.logic.network.service.PoemService;
 import com.snowleopard.poemapp.logic.network.service.QuestionService;
 import com.snowleopard.poemapp.logic.network.service.UserService;
+import com.snowleopard.poemapp.utils.FileChooseUtil;
 import com.snowleopard.poemapp.utils.RetrofitCallback;
 
+import java.io.File;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Response;
+import retrofit2.http.Multipart;
 
 public class PoemNetWork {
 
    static   MutableLiveData<UserInfo> loginData = new MutableLiveData<>();
 
-    static   MutableLiveData<String> registerData= new MutableLiveData<>();
+    static   MutableLiveData<UserInfo> registerData= new MutableLiveData<>();
 
     static MutableLiveData<List<Poem>> poemData = new MutableLiveData<>();
 
@@ -46,6 +52,10 @@ public class PoemNetWork {
 
     static MutableLiveData<List<Question>> mistakesList = new MutableLiveData<>();
 
+    static MutableLiveData<UserInfo> changePasswordData = new MutableLiveData<>();
+
+    static MutableLiveData<String> uploadPortraitData = new MutableLiveData<>();
+
     private static UserService userService = ServiceCreator.create(UserService.class);
 
     private static PoemService poemService = ServiceCreator.create(PoemService.class);
@@ -55,6 +65,7 @@ public class PoemNetWork {
     private static CollectionService collectionService = ServiceCreator.create(CollectionService.class);
 
     private static MistakeService mistakeService = ServiceCreator.create(MistakeService.class);
+
 
     public static LiveData<UserInfo> userLogin(User user){
         userService.userLogin(user.getUsername(), user.getPassword()).enqueue(new RetrofitCallback<BaseResponse<UserInfo>>() {
@@ -67,12 +78,12 @@ public class PoemNetWork {
         return loginData;
     }
 
-    public static LiveData<String>  userRegister(User user){
+    public static LiveData<UserInfo>  userRegister(User user){
         userService.userRegister(user.getPassword(),user.getUsername()).enqueue(new RetrofitCallback<BaseResponse<UserInfo>>() {
             @Override
             public void onResponse(Call<BaseResponse<UserInfo>> call, Response<BaseResponse<UserInfo>> response) {
-                String msg=response.body()!=null?response.body().getMsg():null;
-                registerData.postValue(msg);
+                UserInfo userInfo=response.body()!=null?response.body().getData():null;
+                registerData.postValue(userInfo);
             }
 
         });
@@ -163,6 +174,31 @@ public class PoemNetWork {
             }
         });
         return mistakesList;
+    }
+
+    public static LiveData<UserInfo> changePassword(String userName,String oldPassword,String newPassword){
+        userService.changePassword(userName,oldPassword,newPassword).enqueue(new RetrofitCallback<BaseResponse<UserInfo>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<UserInfo>> call, Response<BaseResponse<UserInfo>> response) {
+                UserInfo userInfo = response.body()!= null?response.body().getData():null;
+                changePasswordData.postValue(userInfo);
+            }
+        });
+        return changePasswordData;
+    }
+
+    public static LiveData<String> uploadPortrait(String userName,String filePath){
+        File file = new File(filePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpg"),file);
+        MultipartBody.Part photo = MultipartBody.Part.createFormData("file","photo.jpg",requestBody);
+        userService.postPortrait(RequestBody.create(null,userName),photo).enqueue(new RetrofitCallback<BaseResponse<String>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<String>> call, Response<BaseResponse<String>> response) {
+                String url  = response.body()!=null?response.body().getData():null;
+                uploadPortraitData.postValue(url);
+            }
+        });
+        return uploadPortraitData;
     }
 
 }

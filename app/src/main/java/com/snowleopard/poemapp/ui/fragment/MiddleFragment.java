@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.snowleopard.poemapp.MainViewModel;
 import com.snowleopard.poemapp.databinding.FragmentMiddleBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
+import com.snowleopard.poemapp.ui.adapter.MiddleStudyAdapter;
 import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class MiddleFragment extends Fragment {
         mainViewModel=new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentMiddleBinding.rvStudyMiddle.setLayoutManager(linearLayoutManager);
-        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemList());
+        MiddleStudyAdapter adapter = new MiddleStudyAdapter(mainViewModel.getPoemList());
         fragmentMiddleBinding.rvStudyMiddle.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelM().observe(this.getActivity(), new Observer<List<Poem>>() {

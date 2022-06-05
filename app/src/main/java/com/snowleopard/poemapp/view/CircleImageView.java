@@ -11,10 +11,11 @@ import android.graphics.Xfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class CircleImageView extends AppCompatImageView {
+public class CircleImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     private int mSize;
     private Paint mPaint;
