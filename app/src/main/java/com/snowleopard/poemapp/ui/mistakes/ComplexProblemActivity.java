@@ -1,7 +1,6 @@
 package com.snowleopard.poemapp.ui.mistakes;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,13 +10,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.R;
-import com.snowleopard.poemapp.databinding.ActivityCollectionBinding;
 import com.snowleopard.poemapp.databinding.ActivityComplexProblemBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.Question;
 import com.snowleopard.poemapp.ui.adapter.MistakesAdapter;
-import com.snowleopard.poemapp.ui.collection.CollectionViewModel;
 
 import java.util.List;
 

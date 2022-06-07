@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.os.Bundle;
 

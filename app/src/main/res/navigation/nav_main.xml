@@ -7,27 +7,27 @@
 <!--通过startDestination来指明启动Activity时显示的第一个Fragment-->
     <fragment
         android:id="@+id/fragment_main"
-        android:name="com.snowleopard.poemapp.ui.fragment.MainFragment"
+        android:name="com.snowleopard.poemapp.ui.main.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/fragment_study"
-        android:name="com.snowleopard.poemapp.ui.fragment.StudyFragment"
+        android:name="com.snowleopard.poemapp.ui.main.fragment.StudyFragment"
         android:label="fragment_study"
         tools:layout="@layout/fragment_study" />
     <fragment
         android:id="@+id/fragment_personal"
-        android:name="com.snowleopard.poemapp.ui.fragment.PersonalFragment"
+        android:name="com.snowleopard.poemapp.ui.main.fragment.PersonalFragment"
         android:label="fragment_personal"
         tools:layout="@layout/fragment_personal" />
     <fragment
         android:id="@+id/fragment_test"
-        android:name="com.snowleopard.poemapp.ui.fragment.TestFragment"
+        android:name="com.snowleopard.poemapp.ui.main.fragment.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" />
     <fragment
         android:id="@+id/fragment_dialog"
-        android:name="com.snowleopard.poemapp.ui.fragment.DialogFragment"
+        android:name="com.snowleopard.poemapp.ui.main.fragment.DialogFragment"
         android:label="fragment_dialog"
         tools:layout="@layout/fragment_dialog" />
 </navigation>

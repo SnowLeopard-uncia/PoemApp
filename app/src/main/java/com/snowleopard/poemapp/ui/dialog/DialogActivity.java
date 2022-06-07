@@ -7,21 +7,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
-import android.hardware.lights.LightsManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityDialogBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.Dialog;
 import com.snowleopard.poemapp.logic.model.PoemDialog;
-import com.snowleopard.poemapp.ui.adapter.DialogAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DialogActivity extends BaseActivity {

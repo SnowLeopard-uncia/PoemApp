@@ -1,6 +1,5 @@
 package com.snowleopard.poemapp.logic;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
@@ -8,9 +7,6 @@ import androidx.lifecycle.MutableLiveData;
 
 
 import com.snowleopard.poemapp.MyApplication;
-import com.snowleopard.poemapp.PoemDB;
-import com.snowleopard.poemapp.UserDao;
-import com.snowleopard.poemapp.logic.model.Dialog;
 import com.snowleopard.poemapp.logic.model.Poem;
 import com.snowleopard.poemapp.logic.model.PoemDialog;
 import com.snowleopard.poemapp.logic.model.Question;
@@ -96,6 +92,14 @@ public class Repository {
 
     public LiveData<String> uploadPortrait(String userName,String filePath){
         return PoemNetWork.uploadPortrait(userName,filePath);
+    }
+
+    public LiveData<Integer> collect(String pid,String userName){
+            return PoemNetWork.collect(pid,userName);
+    }
+
+    public LiveData<Integer> collectDelete(String pid,String userName){
+        return PoemNetWork.deleteCollection(pid, userName);
     }
 
 }

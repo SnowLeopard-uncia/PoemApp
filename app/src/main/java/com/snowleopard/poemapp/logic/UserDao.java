@@ -1,9 +1,10 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.logic;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.snowleopard.poemapp.MyApplication;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 

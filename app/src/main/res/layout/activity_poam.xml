@@ -55,11 +55,13 @@
                     />
 
 
-                <ImageView
-                    android:id="@+id/iv_collect"
+                <CheckBox
+                    android:id="@+id/cb_collect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="23dp"
+                    android:layout_marginLeft="20dp"
+                    android:button="@null"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintBottom_toBottomOf="@+id/poemTitle"
                     app:layout_constraintStart_toEndOf="@+id/poemTitle"
                     app:layout_constraintTop_toTopOf="@+id/poemTitle"

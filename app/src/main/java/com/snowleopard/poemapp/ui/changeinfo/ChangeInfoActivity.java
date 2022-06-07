@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,13 +25,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityChangeInfoBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.utils.FileChooseUtil;
-
-import java.io.IOException;
 
 /**
  * 修改用户名的后端接口有问题，所以暂时没接

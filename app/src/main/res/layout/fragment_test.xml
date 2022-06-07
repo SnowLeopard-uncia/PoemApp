@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_main"
 
-        tools:context=".ui.fragment.TestFragment">
+        tools:context=".ui.main.fragment.TestFragment">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -60,15 +60,15 @@
                 android:background="@drawable/btn_choose_selector"
                 android:text="@string/high" />
 
-            <RadioButton
-                android:id="@+id/rb_test_random"
-                android:layout_width="match_parent"
-                android:button="@null"
-                android:gravity="center"
-                android:layout_height="@dimen/btn_choose_high"
-                android:background="@drawable/btn_choose_selector"
-                android:layout_marginTop="10dp"
-                android:text="@string/random" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rb_test_random"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:button="@null"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_height="@dimen/btn_choose_high"-->
+<!--                android:background="@drawable/btn_choose_selector"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="@string/random" />-->
         </RadioGroup>
 
         <RadioGroup

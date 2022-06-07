@@ -56,6 +56,8 @@ public class PoemNetWork {
 
     static MutableLiveData<String> uploadPortraitData = new MutableLiveData<>();
 
+    static MutableLiveData<Integer> isCollectDelete = new MutableLiveData<>();
+
     private static UserService userService = ServiceCreator.create(UserService.class);
 
     private static PoemService poemService = ServiceCreator.create(PoemService.class);
@@ -199,6 +201,17 @@ public class PoemNetWork {
             }
         });
         return uploadPortraitData;
+    }
+
+    public static LiveData<Integer> deleteCollection(String pid, String userName){
+        collectionService.deleteCollection(pid,userName).enqueue(new RetrofitCallback<BaseResponse<Integer>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<Integer>> call, Response<BaseResponse<Integer>> response) {
+                Integer integer=response.body()!=null?response.body().getData():null;
+                isCollectDelete.postValue(integer);
+            }
+        });
+        return isCollectDelete;
     }
 
 }

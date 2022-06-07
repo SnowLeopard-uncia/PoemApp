@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.os.Bundle;
 
@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.MainViewModel;
 import com.snowleopard.poemapp.databinding.FragmentMiddleBinding;
+import com.snowleopard.poemapp.ui.main.MainViewModel;
 import com.snowleopard.poemapp.logic.model.Poem;
-import com.snowleopard.poemapp.ui.adapter.MiddleStudyAdapter;
 import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 
 import java.util.List;
@@ -36,16 +35,16 @@ public class MiddleFragment extends Fragment {
         mainViewModel=new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentMiddleBinding.rvStudyMiddle.setLayoutManager(linearLayoutManager);
-        MiddleStudyAdapter adapter = new MiddleStudyAdapter(mainViewModel.getPoemList());
+        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemListM());
         fragmentMiddleBinding.rvStudyMiddle.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelM().observe(this.getActivity(), new Observer<List<Poem>>() {
             @Override
             public void onChanged(List<Poem> poems) {
                 if (poems!=null){
-                    mainViewModel.getPoemList().clear();//因为用的同一个ViewModel，所以不clear的话，会出现和primary一样的数据
-                    mainViewModel.setPoemList(poems);
-                    adapter.setPoems(mainViewModel.getPoemList());
+                    mainViewModel.getPoemListM().clear();//因为用的同一个ViewModel，所以不clear的话，会出现和primary一样的数据
+                    mainViewModel.setPoemListM(poems);
+                    adapter.setPoems(mainViewModel.getPoemListM());
                     Log.e("TAG", "onChanged: "+"middle" );
                 }else {
                     Toast.makeText(getActivity(),"暂无诗词",Toast.LENGTH_SHORT).show();

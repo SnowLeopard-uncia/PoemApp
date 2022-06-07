@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.ui.main;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.NavBarBinding;
 
 public class BaseActivity extends AppCompatActivity {

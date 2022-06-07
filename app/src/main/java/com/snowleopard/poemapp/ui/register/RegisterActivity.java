@@ -11,10 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.MainActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityRegisterBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.ui.main.MainActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 

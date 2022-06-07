@@ -1,22 +1,20 @@
 package com.snowleopard.poemapp.ui.collection;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityCollectionBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.Poem;
 import com.snowleopard.poemapp.ui.adapter.CollectionAdapter;
 

@@ -1,9 +1,7 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.ui.main;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -11,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.snowleopard.poemapp.R;
 
 public class MainActivity extends BaseActivity{
 

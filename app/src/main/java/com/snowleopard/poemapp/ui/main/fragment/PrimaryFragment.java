@@ -1,8 +1,7 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.databinding.FragmentPrimaryBinding;
+import com.snowleopard.poemapp.ui.main.MainViewModel;
+import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.logic.model.Poem;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class PrimaryFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentPrimaryBinding.rvStudyPrimary.setLayoutManager(linearLayoutManager);
-        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemList());
+        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemListP());
 //        StudyAdapter adapter = new StudyAdapter();
         fragmentPrimaryBinding.rvStudyPrimary.setAdapter(adapter);
 
@@ -48,9 +47,9 @@ public class PrimaryFragment extends Fragment {
             public void onChanged(List<Poem> poems) {
                 if (poems!=null){
 
-                    mainViewModel.getPoemList().clear();
-                    mainViewModel.setPoemList(poems);
-                    adapter.setPoems(mainViewModel.getPoemList());
+                    mainViewModel.getPoemListP().clear();
+                    mainViewModel.setPoemListP(poems);
+                    adapter.setPoems(mainViewModel.getPoemListP());
                     Log.e("TAG", "onChanged: "+"primary" );
                 }else {
                     Toast.makeText(getActivity(),"暂无诗词",Toast.LENGTH_SHORT).show();

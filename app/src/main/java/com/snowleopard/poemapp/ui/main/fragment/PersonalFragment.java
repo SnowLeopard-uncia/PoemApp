@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,12 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
-import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.FragmentPersonalBinding;
+import com.snowleopard.poemapp.ui.main.MainViewModel;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.ui.changeinfo.ChangeInfoActivity;
 import com.snowleopard.poemapp.ui.collection.CollectionActivity;
@@ -46,6 +45,7 @@ public class PersonalFragment extends Fragment {
 
         Log.e("TAG", "onCreateView: "+userInfo.getProPath());
  //初始化
+        //关掉电脑防火墙才能加载 不然会Failed to load resource，
         Glide.with(requireActivity())
                 .load(userInfo.getProPath())
                 .apply(RequestOptions.bitmapTransform(new CircleCrop())) //使用Glide展示圆形图片

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
 <!--    这里的name指明的是androidx.navigation.fragment.NavHostFragment，这个属性就表明这个fragment指明的就是NavHost-->
     <androidx.fragment.app.FragmentContainerView

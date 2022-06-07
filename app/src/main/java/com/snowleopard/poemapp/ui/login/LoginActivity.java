@@ -8,14 +8,13 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.MainActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityLoginBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.ui.main.MainActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.UserInfo;
 import com.snowleopard.poemapp.logic.model.User;
 import com.snowleopard.poemapp.ui.register.RegisterActivity;

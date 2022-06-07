@@ -1,14 +1,20 @@
 package com.snowleopard.poemapp.logic.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+/**
+ * 可恶后端没有那个确认是否收藏的接口，搞得我要传递一个是否确认的接口过去
+ */
 
-public class Poem implements Serializable {
+public class Poem implements Serializable,Parcelable {
 
     @SerializedName("p_level")
     private Integer pLevel;
@@ -24,6 +30,33 @@ public class Poem implements Serializable {
     private String title;
     @SerializedName("p_id")
     private String pId;
+
+    protected Poem(Parcel in) {
+        if (in.readByte() == 0) {
+            pLevel = null;
+        } else {
+            pLevel = in.readInt();
+        }
+        original = in.readString();
+        author = in.readString();
+        background = in.readString();
+        parse = in.readString();
+        title = in.readString();
+        pId = in.readString();
+    }
+
+
+    public static final Creator<Poem> CREATOR = new Creator<Poem>() {
+        @Override
+        public Poem createFromParcel(Parcel in) {
+            return new Poem(in);
+        }
+
+        @Override
+        public Poem[] newArray(int size) {
+            return new Poem[size];
+        }
+    };
 
     public Integer getpLevel() {
         return pLevel;
@@ -89,5 +122,27 @@ public class Poem implements Serializable {
         this.parse = parse;
         this.title = title;
         this.pId = pId;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (pLevel == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(pLevel);
+        }
+        dest.writeString(original); //写出
+        dest.writeString(author);
+        dest.writeString(background);
+        dest.writeString(parse);
+        dest.writeString(title);
+        dest.writeString(pId);
     }
 }

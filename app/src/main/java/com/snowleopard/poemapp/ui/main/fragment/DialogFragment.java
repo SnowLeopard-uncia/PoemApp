@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.FragmentDialogBinding;
@@ -49,13 +50,17 @@ public class DialogFragment extends Fragment implements View.OnClickListener{
                 level=2;
                 break;
             case R.id.btn_random:
-                level=3;
+                level=-1;
+                Toast.makeText(getActivity(),"该等级暂未开放",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
         }
-        Intent intent = new Intent(getActivity(), DialogActivity.class);
-        intent.putExtra("level",level);
-        startActivity(intent);
+        if (level!=-1){
+            Intent intent = new Intent(getActivity(), DialogActivity.class);
+            intent.putExtra("level",level);
+            startActivity(intent);
+        }
+
     }
 }

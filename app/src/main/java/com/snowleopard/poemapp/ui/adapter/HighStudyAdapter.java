@@ -1,6 +1,7 @@
 package com.snowleopard.poemapp.ui.adapter;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.snowleopard.poemapp.databinding.ItemStudyBinding;
 import com.snowleopard.poemapp.logic.model.Poem;
 import com.snowleopard.poemapp.ui.poem.PoemActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HighStudyAdapter extends RecyclerView.Adapter<HighStudyAdapter.ViewHolder> {
@@ -47,7 +49,12 @@ public class HighStudyAdapter extends RecyclerView.Adapter<HighStudyAdapter.View
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), PoemActivity.class);
-                intent.putExtra("poem_data",poem);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("poem_data",poem);
+                ArrayList list = new ArrayList();
+                list.add(poemList);
+                bundle.putParcelableArrayList("poem_list",list);
+                intent.putExtra("bundle",bundle);
                 view.getContext().startActivity(intent);
             }
         });

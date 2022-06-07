@@ -19,12 +19,12 @@ public class PoemDialog {
     private int id;
     private String ask;
     private String answer;
-@ColumnInfo(name = "level_column")
-private int level;
+    @ColumnInfo(name = "level_column")
+    private int level;
 
-    public PoemDialog(String ask, String answer,int level) {
+    public PoemDialog(String ask, String answer, int level) {
         this.ask = ask;
-        this.level=level;
+        this.level = level;
         this.answer = answer;
     }
 

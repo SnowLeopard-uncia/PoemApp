@@ -20,9 +20,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.BaseActivity;
-import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.databinding.ActivityTestBinding;
+import com.snowleopard.poemapp.ui.main.BaseActivity;
+import com.snowleopard.poemapp.R;
 import com.snowleopard.poemapp.logic.model.Question;
 
 import java.math.BigDecimal;
@@ -156,14 +156,14 @@ public class TestActivity extends BaseActivity {
 
                     msg.what = 0;
                 } else {
-  //一个BUG，就是如果这里两个都是int的话，相除直接舍弃小数点后，所以会得到0，所以要转换成double来运算
+                    //一个BUG，就是如果这里两个都是int的话，相除直接舍弃小数点后，所以会得到0，所以要转换成double来运算
                     double correct = testViewModel.getCorrectMistakes().getCorrectNum();
                     double all = testViewModel.getQuestionList().size();
-                    BigDecimal bigDecimal = BigDecimal.valueOf(( correct/all )* 100L);
+                    BigDecimal bigDecimal = BigDecimal.valueOf((correct / all) * 100L);
 //                    对double类型四舍五入 小数点后两位
                     double rate = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 //                    double rate = ( correct/all )* 100;
-                    Log.e("TAG", "handleMessage: "+correct + "  "+all+ "  " +rate );
+                    Log.e("TAG", "handleMessage: " + correct + "  " + all + "  " + rate);
                     testViewModel.getCorrectMistakes().setRate(rate);
                     Intent intent = new Intent(TestActivity.this, FinishTestActivity.class);
                     intent.putExtra("rate_data", testViewModel.getCorrectMistakes());

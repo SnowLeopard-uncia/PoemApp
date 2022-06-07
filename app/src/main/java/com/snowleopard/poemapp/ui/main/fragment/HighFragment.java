@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp.ui.fragment;
+package com.snowleopard.poemapp.ui.main.fragment;
 
 import android.os.Bundle;
 
@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.snowleopard.poemapp.MainViewModel;
-import com.snowleopard.poemapp.ui.adapter.HighStudyAdapter;
-import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.databinding.FragmentHighBinding;
+import com.snowleopard.poemapp.ui.main.MainViewModel;
+import com.snowleopard.poemapp.ui.adapter.StudyAdapter;
 import com.snowleopard.poemapp.logic.model.Poem;
 
 import java.util.List;
@@ -37,16 +36,16 @@ public class HighFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this.getActivity());
         fragmentHighBinding.rvStudyHigh.setLayoutManager(linearLayoutManager);
-        HighStudyAdapter adapter = new HighStudyAdapter(mainViewModel.getPoemList());
+        StudyAdapter adapter = new StudyAdapter(mainViewModel.getPoemListH());
         fragmentHighBinding.rvStudyHigh.setAdapter(adapter);
 
         mainViewModel.getPoemByLevelH().observe(this.getActivity(), new Observer<List<Poem>>() {
             @Override
             public void onChanged(List<Poem> poems) {
                 if (poems!=null){
-                    mainViewModel.getPoemList().clear();
-                    mainViewModel.setPoemList(poems);
-                    adapter.setPoems(mainViewModel.getPoemList());
+                    mainViewModel.getPoemListH().clear();
+                    mainViewModel.setPoemListH(poems);
+                    adapter.setPoems(mainViewModel.getPoemListH());
                     Log.e("TAG", "onChanged: "+"high" );
                 }else {
                     Toast.makeText(getActivity(),"暂无诗词",Toast.LENGTH_SHORT).show();

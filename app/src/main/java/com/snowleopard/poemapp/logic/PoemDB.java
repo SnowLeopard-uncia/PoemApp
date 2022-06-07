@@ -1,4 +1,4 @@
-package com.snowleopard.poemapp;
+package com.snowleopard.poemapp.logic;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,7 +9,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.snowleopard.poemapp.logic.PoemDialogDao;
 import com.snowleopard.poemapp.logic.model.PoemDialog;
 
 @Database(entities = {PoemDialog.class},version = 1,exportSchema = false)
